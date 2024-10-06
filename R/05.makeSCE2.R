@@ -11,7 +11,7 @@
 #' @importFrom stats cor dnbinom mad median pnbinom qnbinom quantile uniroot
 #' 
 #' @return A SingleCellExperiment object with normalized data added to the 'assays' slot. The log percentile-adjusted count is stored in the 'logPAC' component of the 'assays' slot, the revised logPAC is in the 'logPAC_new' component, and the Pearson residuals is in the 'pearson' component.
-
+#' @export
 makeSCE2 <-
 function(obj,
                      cData=NULL, batch = NULL, assays = c('pearson','logPAC', "logPAC_new")){

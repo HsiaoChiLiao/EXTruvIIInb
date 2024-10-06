@@ -3,6 +3,8 @@
 export(extFastruvIIInb_cca)
 export(extFastruvIIInb_ortho)
 export(extFastruvIIInb_vanilla)
+export(get.res2)
+export(makeSCE2)
 import(doParallel)
 import(foreach)
 import(matrixStats)

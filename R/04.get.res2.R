@@ -14,7 +14,7 @@
 #' @importFrom SummarizedExperiment assays<-
 #' 
 #' @return A matrix containing the normalized data.
-
+#' @export
 get.res2 <-
 function(out, 
                      type = c("logcounts","pearson","quantile","quantile_spanorm"),

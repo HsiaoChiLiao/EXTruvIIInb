@@ -1,19 +1,164 @@
 ---
-title: "EXTruvIIInb"
-output: rmarkdown::html_vignette
+title: "EXTruvIIInb: The EXTended RUV-III-NB"
+author: "Hsiao-Chi Liao"
+date: "`r Sys.Date()`"
+header-includes:
+  \usepackage{fvextra}
+  \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
+output:
+  BiocStyle::pdf_document:
+    extra_dependencies: ['amsmath']
+    toc: true
+    toc_depth: 2
 vignette: >
-  %\VignetteIndexEntry{EXTruvIIInb}
+  %\VignetteIndexEntry{EXTruvIIInb: EXTended RUV-III-NB}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
+# bibliography: ref.bib
+link-citations: true
 ---
 
-```{r, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>"
-)
+```{r, setup, include=FALSE}
+library(knitr)
+opts_chunk$set(tidy.opts=list(width.cutoff=60),
+               tidy=TRUE,
+               collapse = TRUE,
+               comment = "#>")
+# knitr::opts_chunk$set(
+#   collapse = TRUE,
+#   comment = "#>"
+# )
 ```
 
-```{r setup}
+# Introduction
+Single-cell multimodal technologies provide an opportunity to study biological mechanisms more comprehensively. The integrated analysis of matched single-cell transcriptomics (mRNA expression) and proteomics (protein abundance) data can help reveal biological insights that would not have been possible from separate analyses of each modality.
+
+## Motivation
+Unwanted variation from sources such as shared batches and modality-specific library size effects inevitably exists in the data from both domains. If not properly corrected, the unwanted variation can potentially lead to misleading conclusions being made from the downstream analyses. However, none of the existing methods adequately takes biological factors into account in their models, often leading to the removal of both biological and unwanted variations when they are associated. To address the limitations, we propose the Extended RUV-III-NB. Our model accounts for biology and decomposes unwanted variation into joint and modality-specific components, providing a clearer understanding of the unwanted variation present in the data.
+
+## The RUV-III-NB framework and the Extended RUV-III-NB model
+RUV-III-NB (Salim et al., 2022) is a method developed for removing unwanted variation from single-cell mRNA UMI counts, using a subset of annotated cells (as low as 5\%) for model training. RUV-III-NB infers unwanted factors without requiring them to be specified in the model, and provides two types of corrected counts: logPAC (percentile adjusted counts on the natural logarithm scale) and Pearson residuals.
+
+The model of the extended RUV-III-NB which shares the same general structure with the RUV-III-NB model (Salim et al., 2022) is as follows.
+
+$$
+\log(\boldsymbol{\mu_f})=\zeta_f\boldsymbol{1}+\boldsymbol{M}\boldsymbol{\beta_f}+\boldsymbol{W}\boldsymbol{\alpha_f},
+$$
+
+The extended RUV-III-NB has a different design for the unwanted component $\boldsymbol{W\alpha_f}$, where
+$\boldsymbol{W}=
+\begin{bmatrix}
+\boldsymbol{W_1}|&\boldsymbol{W_2}|&\boldsymbol{W_3}
+\end{bmatrix}
+_{n \times (k_1+k_2+k_3)}$
+
+$\boldsymbol{\alpha_f}=
+\begin{bmatrix}
+\boldsymbol{\alpha_{1,f}} \\
+\boldsymbol{0} \\
+\boldsymbol{\alpha_{3,f}}
+\end{bmatrix}
+_{(k_1+k_3) \times 1}$ for $f$ from the mRNA domain, and 
+
+$\boldsymbol{\alpha_f}=
+\begin{bmatrix}
+\boldsymbol{0} \\
+\boldsymbol{\alpha_{2,f}} \\
+\boldsymbol{\alpha_{3,f}}
+\end{bmatrix}
+_{(k_2+k_3) \times 1}$ for $f$ from the protein domain.
+
+
+# Analysing data with the EXTruvIIInb package
+
+## Installing and loading the packages
+We firstly install the Extended RUV-III-NB package with the following.
+
+```{r, eval=FALSE, include=FALSE}
+install.packages("/Volumes/Transcend_4T/PhD_desktop/multiOmics/extendRUVIIINB/package/2024/EXTruvIIInb_0.0.0.9000.tar.gz", repos = NULL, type="source")
+```
+
+```{r, install_pkg, eval=FALSE}
+devtools::install_github("HsiaoChiLiao/EXTruvIIInb", build_vignettes=FALSE)
+```
+
+Below packages are required for the analysis in this Vignette and are loaded below.
+```{r, dependency}
 library(EXTruvIIInb)
+
+suppressPackageStartupMessages({
+library(ruvIIInb)
+library(DelayedArray)
+library(uwot)
+library(lisi)
+})
+```
+
+## Anslysing the Triana dataset with EXTruvIIInb
+### The Triana dataset
+This human bone marrow dataset was published by Triana et al. (2021, Nature Immunology). After quality control (QC), this dataset contains 422 targeted mRNA features, and 97 proteins measured by oligo-tagged antibodies (Antibody-Derived Tags, ADT). A total of 9,663 cells were randomly selected from 49,057 cells from 3 healthy young adults and 3 healthy aged adults with each sample from a different batch, are used for the below demonstration.
+
+The build-in data `triana_data` can be called by the function `data()` and it contains (1) the raw counts of mRNA and ADT features (`rna_raw` and `adt_raw`), (2) the metadata of the cells (cell annotation and batch information), (3) the negative control sets for inferring ${\boldsymbol W_1}$, ${\boldsymbol W_2}$, and ${\boldsymbol W_3}$
+```{r, triana_dat}
+#load the build-in data
+data("triana_data")
+str(triana_data)
+
+#the components in the "triana_data" list
+rna_raw <- triana_data$rna_raw
+adt_raw <- triana_data$adt_raw
+meta <- triana_data$meta
+nc1 <- triana_data$nc1
+nc2 <- triana_data$nc2 
+nc3 <- triana_data$nc3
+
+#the raw counts
+rna_raw[1:5,1:3]
+adt_raw[1:5,1:3]
+
+#the metadata for each cell
+head(triana_data$meta)
+```
+
+### Running the vanilla EXTruvIIInb (the version without constraints)
+Based on our experience, a majority of the library size effect of each modality can usually be captured with one unwanted factor. Thus, we set $k_1=k_2=1$ for the inference of the modality-specific library size (and other unknown unwanted variation), and $k_3=2$ for capturing the joint unwanted effects.
+```{r, vanil_extruv3nb}
+# Using known cell types to define pseudo-replicates
+anno <- meta$cellType_broad
+
+# Construct the replicate matrix M using the known cell-types
+unique_ctype<- unique(anno)[!is.na(unique(anno))]
+M <- matrix(0, nrow(meta), length(unique_ctype))
+dim(M) 
+for(i in 1:length(unique_ctype)){
+    M[anno == unique_ctype[i], i] <- 1
+}
+
+# Running with the vanilla extended RUV-III-NB        
+a <- Sys.time()
+extruv3nb_broad <- extFastruvIIInb_vanilla(Y1=DelayedArray(t(rna_raw)),
+                                           Y2=DelayedArray(t(adt_raw)),
+                                           M=M,
+                                           ctl1=nc1,
+                                           ctl2=nc2,
+                                           ctl3=nc3,
+                                           k1=1,
+                                           k2=1,
+                                           k3=2,
+                                           ncores = 4)
+b <- Sys.time()
+print("finished!")
+print(b-a)
+```
+
+```{r, adjusted data}
+#Creating a SingleCellExperiment object
+# sce_ruv3nb_broad <- makeSCE2(extruv3nb_broad, cData=meta)
+# print("passed converting to sce")
+#     rna_logPAC_new <- as.matrix(assays(sce_ruv3nb_broad[[1]])$logPAC_new)
+#     rna_logPAC <- as.matrix(assays(sce_ruv3nb_broad[[1]])$logPAC)
+#     rna_PearsonRes <- as.matrix(assays(sce_ruv3nb_broad[[1]])$pearson)
+#     adt_logPAC_new <- as.matrix(assays(sce_ruv3nb_broad[[2]])$logPAC_new)
+#     adt_logPAC <- as.matrix(assays(sce_ruv3nb_broad[[2]])$logPAC)
+#     adt_PearsonRes <- as.matrix(assays(sce_ruv3nb_broad[[2]])$pearson)
 ```
