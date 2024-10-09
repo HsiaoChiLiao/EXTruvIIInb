@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.3.9)  6 OCT 2024 21:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.3.9)  9 OCT 2024 14:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -851,55 +851,243 @@ l/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/
 2023/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/local/texlive/2023/texmf
 -dist/fonts/enc/dvips/lm/lm-mathsy.enc}]
 LaTeX Font Info:    Trying to load font information for T1+fvm on input line 19
-7.
+5.
 (/usr/local/texlive/2023/texmf-dist/tex/latex/bera/t1fvm.fd
 File: t1fvm.fd 2004/09/07 scalable font definitions for T1/fvm.
 )
 LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
-(Font)              scaled to size 7.98004pt on input line 197.
+(Font)              scaled to size 7.98004pt on input line 195.
 LaTeX Font Info:    Font shape `T1/fvm/m/it' in size <10> not available
-(Font)              Font shape `T1/fvm/m/sl' tried instead on input line 227.
+(Font)              Font shape `T1/fvm/m/sl' tried instead on input line 233.
 LaTeX Font Info:    Font shape `T1/fvm/m/sl' will be
-(Font)              scaled to size 7.98004pt on input line 227.
+(Font)              scaled to size 7.98004pt on input line 233.
 LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
-(Font)              scaled to size 3.99002pt on input line 233.
+(Font)              scaled to size 3.99002pt on input line 239.
 LaTeX Font Info:    Trying to load font information for TS1+fvm on input line 2
-39.
+45.
 (/usr/local/texlive/2023/texmf-dist/tex/latex/bera/ts1fvm.fd
 File: ts1fvm.fd 2004/09/07 scalable font definitions for TS1/fvm.
 )
 LaTeX Font Info:    Font shape `TS1/fvm/m/it' in size <10> not available
-(Font)              Font shape `TS1/fvm/m/sl' tried instead on input line 239.
+(Font)              Font shape `TS1/fvm/m/sl' tried instead on input line 245.
 LaTeX Font Info:    Font shape `TS1/fvm/m/sl' will be
-(Font)              scaled to size 7.98004pt on input line 239.
-
-Overfull \vbox (5.03137pt too high) detected at line 289
- []
-
-[3] [4]
-Underfull \vbox (badness 10000) detected at line 388
- []
-
-[5]
-Underfull \vbox (badness 10000) detected at line 388
+(Font)              scaled to size 7.98004pt on input line 245.
+[3]
+Underfull \vbox (badness 10000) detected at line 295
  []
 
 
-Underfull \vbox (badness 10000) detected at line 388
+Underfull \vbox (badness 10000) detected at line 295
  []
 
-[6] [7] (./EXTruvIIInb_vignette.aux)
+[4] [5]
+Underfull \vbox (badness 10000) detected at line 399
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 399
+ []
+
+[6] [7]
+<EXTruvIIInb_vignette_files/figure-latex/converg-1.pdf, id=140, 562.1pt x 277.0
+35pt>
+File: EXTruvIIInb_vignette_files/figure-latex/converg-1.pdf Graphic file (type 
+pdf)
+<use EXTruvIIInb_vignette_files/figure-latex/converg-1.pdf>
+Package pdftex.def Info: EXTruvIIInb_vignette_files/figure-latex/converg-1.pdf 
+ used on input line 434.
+(pdftex.def)             Requested size: 341.431pt x 168.2767pt.
+
+Overfull \vbox (2.78587pt too high) detected at line 475
+ []
+
+[8 <./EXTruvIIInb_vignette_files/figure-latex/converg-1.pdf>]
+Overfull \vbox (1.50917pt too high) detected at line 520
+ []
+
+[9]
+<EXTruvIIInb_vignette_files/figure-latex/UnwantF-1.pdf, id=156, 568.1225pt x 56
+6.115pt>
+File: EXTruvIIInb_vignette_files/figure-latex/UnwantF-1.pdf Graphic file (type 
+pdf)
+<use EXTruvIIInb_vignette_files/figure-latex/UnwantF-1.pdf>
+Package pdftex.def Info: EXTruvIIInb_vignette_files/figure-latex/UnwantF-1.pdf 
+ used on input line 523.
+(pdftex.def)             Requested size: 341.44826pt x 340.24174pt.
+[10 <./EXTruvIIInb_vignette_files/figure-latex/UnwantF-1.pdf>] [11] [12]
+<EXTruvIIInb_vignette_files/figure-latex/lisi_fig_bio-1.pdf, id=182, 417.56pt x
+ 204.765pt>
+File: EXTruvIIInb_vignette_files/figure-latex/lisi_fig_bio-1.pdf Graphic file (
+type pdf)
+<use EXTruvIIInb_vignette_files/figure-latex/lisi_fig_bio-1.pdf>
+Package pdftex.def Info: EXTruvIIInb_vignette_files/figure-latex/lisi_fig_bio-1
+.pdf  used on input line 643.
+(pdftex.def)             Requested size: 341.45206pt x 167.44283pt.
+
+Overfull \hbox (68.65845pt too wide) in paragraph at lines 667--667
+[]\T1/fvm/m/n/10 data.frame[][]([][]table[][](meta[][]$[][]cellType_broad))[[][
+]order[][]([][]data.frame[][]([][]table[][](meta[][]$[][]cellType_broad))[][]$[
+][]Freq,[]|  
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 677
+ []
+
+[13 <./EXTruvIIInb_vignette_files/figure-latex/lisi_fig_bio-1.pdf>]
+<EXTruvIIInb_vignette_files/figure-latex/lisi_fig_bat-1.pdf, id=195, 634.37pt x
+ 351.3125pt>
+File: EXTruvIIInb_vignette_files/figure-latex/lisi_fig_bat-1.pdf Graphic file (
+type pdf)
+<use EXTruvIIInb_vignette_files/figure-latex/lisi_fig_bat-1.pdf>
+Package pdftex.def Info: EXTruvIIInb_vignette_files/figure-latex/lisi_fig_bat-1
+.pdf  used on input line 680.
+(pdftex.def)             Requested size: 341.44153pt x 189.08945pt.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family fvm in TS1 encoding.
+(textcomp)             Default family used instead on input line 731.
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 7
+31.
+(/usr/local/texlive/2023/texmf-dist/tex/latex/base/t1cmtt.fd
+File: t1cmtt.fd 2022/07/10 v2.5l Standard LaTeX font definitions
+)
+LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 
+731.
+(/usr/local/texlive/2023/texmf-dist/tex/latex/base/ts1cmtt.fd
+File: ts1cmtt.fd 2022/07/10 v2.5l Standard LaTeX font definitions
+)
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family fvm in TS1 encoding.
+(textcomp)             Default family used instead on input line 731.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family fvm in TS1 encoding.
+(textcomp)             Default family used instead on input line 731.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family fvm in TS1 encoding.
+(textcomp)             Default family used instead on input line 731.
+
+Overfull \vbox (0.25406pt too high) detected at line 736
+ []
+
+[14 <./EXTruvIIInb_vignette_files/figure-latex/lisi_fig_bat-1.pdf>]
+<EXTruvIIInb_vignette_files/figure-latex/umap_visu2-1.pdf, id=208, 568.1225pt x
+ 657.45625pt>
+File: EXTruvIIInb_vignette_files/figure-latex/umap_visu2-1.pdf Graphic file (ty
+pe pdf)
+<use EXTruvIIInb_vignette_files/figure-latex/umap_visu2-1.pdf>
+Package pdftex.def Info: EXTruvIIInb_vignette_files/figure-latex/umap_visu2-1.p
+df  used on input line 739.
+(pdftex.def)             Requested size: 341.44826pt x 395.1389pt.
+[15{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.en
+c}]
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family fvm in TS1 encoding.
+(textcomp)             Default family used instead on input line 773.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family fvm in TS1 encoding.
+(textcomp)             Default family used instead on input line 773.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family fvm in TS1 encoding.
+(textcomp)             Default family used instead on input line 773.
+Package textcomp Info: Symbol \textasciigrave not provided by
+(textcomp)             font family fvm in TS1 encoding.
+(textcomp)             Default family used instead on input line 773.
+
+Underfull \vbox (badness 1917) detected at line 778
+ []
+
+[16 <./EXTruvIIInb_vignette_files/figure-latex/umap_visu2-1.pdf>]
+<EXTruvIIInb_vignette_files/figure-latex/umap_visu3-1.pdf, id=226, 568.1225pt x
+ 683.55376pt>
+File: EXTruvIIInb_vignette_files/figure-latex/umap_visu3-1.pdf Graphic file (ty
+pe pdf)
+<use EXTruvIIInb_vignette_files/figure-latex/umap_visu3-1.pdf>
+Package pdftex.def Info: EXTruvIIInb_vignette_files/figure-latex/umap_visu3-1.p
+df  used on input line 781.
+(pdftex.def)             Requested size: 341.44826pt x 410.8238pt.
+[17] [18 <./EXTruvIIInb_vignette_files/figure-latex/umap_visu3-1.pdf>]
+Underfull \vbox (badness 2503) detected at line 857
+ []
+
+[19]
+Overfull \hbox (68.65845pt too wide) in paragraph at lines 874--874
+[]\T1/fvm/m/n/10 data.frame[][]([][]table[][](meta[][]$[][]cellType_broad))[[][
+]order[][]([][]data.frame[][]([][]table[][](meta[][]$[][]cellType_broad))[][]$[
+][]Freq,[]|  
+ []
+
+<EXTruvIIInb_vignette_files/figure-latex/de_bat_fig-1.pdf, id=249, 634.37pt x 3
+51.3125pt>
+File: EXTruvIIInb_vignette_files/figure-latex/de_bat_fig-1.pdf Graphic file (ty
+pe pdf)
+<use EXTruvIIInb_vignette_files/figure-latex/de_bat_fig-1.pdf>
+Package pdftex.def Info: EXTruvIIInb_vignette_files/figure-latex/de_bat_fig-1.p
+df  used on input line 887.
+(pdftex.def)             Requested size: 341.44153pt x 189.08945pt.
+[20]
+Overfull \vbox (1.25406pt too high) detected at line 1013
+ []
+
+[21 <./EXTruvIIInb_vignette_files/figure-latex/de_bat_fig-1.pdf>]
+Underfull \vbox (badness 10000) detected at line 1013
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 1013
+ []
+
+[22] [23]
+<EXTruvIIInb_vignette_files/figure-latex/de_bio_fig-1.pdf, id=274, 345.29pt x 3
+51.3125pt>
+File: EXTruvIIInb_vignette_files/figure-latex/de_bio_fig-1.pdf Graphic file (ty
+pe pdf)
+<use EXTruvIIInb_vignette_files/figure-latex/de_bio_fig-1.pdf>
+Package pdftex.def Info: EXTruvIIInb_vignette_files/figure-latex/de_bio_fig-1.p
+df  used on input line 1041.
+(pdftex.def)             Requested size: 341.43771pt x 347.39304pt.
+[24]
+Overfull \vbox (0.87306pt too high) detected at line 1067
+ []
+
+[25 <./EXTruvIIInb_vignette_files/figure-latex/de_bio_fig-1.pdf>]
+<EXTruvIIInb_vignette_files/figure-latex/umap_2logpac_bio-1.pdf, id=292, 489.83
+pt x 313.17pt>
+File: EXTruvIIInb_vignette_files/figure-latex/umap_2logpac_bio-1.pdf Graphic fi
+le (type pdf)
+<use EXTruvIIInb_vignette_files/figure-latex/umap_2logpac_bio-1.pdf>
+Package pdftex.def Info: EXTruvIIInb_vignette_files/figure-latex/umap_2logpac_b
+io-1.pdf  used on input line 1070.
+(pdftex.def)             Requested size: 341.4436pt x 218.3pt.
+
+Underfull \vbox (badness 4805) detected at line 1103
+ []
+
+
+Overfull \vbox (1.04651pt too high) detected at line 1103
+ []
+
+[26 <./EXTruvIIInb_vignette_files/figure-latex/umap_2logpac_bio-1.pdf>]
+<EXTruvIIInb_vignette_files/figure-latex/umap_marker-1.pdf, id=305, 568.1225pt 
+x 490.83376pt>
+File: EXTruvIIInb_vignette_files/figure-latex/umap_marker-1.pdf Graphic file (t
+ype pdf)
+<use EXTruvIIInb_vignette_files/figure-latex/umap_marker-1.pdf>
+Package pdftex.def Info: EXTruvIIInb_vignette_files/figure-latex/umap_marker-1.
+pdf  used on input line 1106.
+(pdftex.def)             Requested size: 341.44826pt x 294.99683pt.
+[27 <./EXTruvIIInb_vignette_files/figure-latex/umap_marker-1.pdf>] (./EXTruvIII
+nb_vignette.aux)
 Package rerunfilecheck Info: File `EXTruvIIInb_vignette.out' has not changed.
-(rerunfilecheck)             Checksum: AD65BF3308E660AE892296EC8C7CD6D9;1504.
+(rerunfilecheck)             Checksum: E2500506DF9CD64A91512A672108EB1C;3262.
  ) 
 Here is how much of TeX's memory you used:
- 19058 strings out of 476025
- 317829 string characters out of 5790018
- 1875388 words of memory out of 5000000
- 39040 multiletter control sequences out of 15000+600000
- 591294 words of font info for 130 fonts, out of 8000000 for 9000
+ 19290 strings out of 476025
+ 325752 string characters out of 5790018
+ 1879388 words of memory out of 5000000
+ 39178 multiletter control sequences out of 15000+600000
+ 596796 words of font info for 154 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 78i,13n,81p,1209b,519s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 78i,14n,81p,1209b,557s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></usr/
 local/texlive/2023/texmf-dist/fonts/type1/public/bera/fvmro8a.pfb></usr/local/t
 exlive/2023/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/202
@@ -917,12 +1105,13 @@ sbo10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmssbx10.pf
 b></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/lo
 cal/texlive/2023/texmf-dist/fonts/type1/public/lm/lmsy5.pfb></usr/local/texlive
 /2023/texmf-dist/fonts/type1/public/lm/lmsy7.pfb></usr/local/texlive/2023/texmf
--dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2023/texmf-dist/f
-onts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on EXTruvIIInb_vignette.pdf (7 pages, 254419 bytes).
+-dist/fonts/type1/public/cm-super/sfit1000.pfb></usr/local/texlive/2023/texmf-d
+ist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2023/texmf-dist/fon
+ts/type1/urw/helvetic/uhvr8a.pfb>
+Output written on EXTruvIIInb_vignette.pdf (27 pages, 21753331 bytes).
 PDF statistics:
- 193 PDF objects out of 1000 (max. 8388607)
- 134 compressed objects within 2 object streams
- 16 named destinations out of 1000 (max. 500000)
- 30769 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 437 PDF objects out of 1000 (max. 8388607)
+ 310 compressed objects within 4 object streams
+ 47 named destinations out of 1000 (max. 500000)
+ 32931 words of extra memory for PDF output out of 35830 (max. 10000000)
 

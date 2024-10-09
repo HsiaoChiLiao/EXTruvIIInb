@@ -20,7 +20,15 @@ RoxygenNote: 7.3.2
 Imports: edgeR (>= 3.34.0), doParallel (>= 1.0.15), SummarizedExperiment (>= 1.28.0), SingleCellExperiment (>= 1.14.1), Rfast (>= 1.9.9), foreach (>= 1.5.0), MASS (>= 7.3-51.4), BiocParallel (>= 1.20.1), Matrix (>= 1.2.17), ZIM (>= 1.1.0), DelayedMatrixStats (>= 1.20.0), DelayedArray (>= 0.24.0), ruvIIInb, methods, MultBiplotR, irlba, matlib, matrixStats
 Suggests: 
     knitr,
-    rmarkdown
+    rmarkdown,
+    cowplot,
+    metapod,
+    GGally,
+    RColorBrewer,
+    ggplot2,
+    gridExtra,
+    lisi,
+    uwot
 VignetteBuilder: knitr
 Depends: 
     R (>= 4.1.0)
