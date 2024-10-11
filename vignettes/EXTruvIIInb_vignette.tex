@@ -1,0 +1,1115 @@
+\documentclass[]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+
+
+\usepackage{longtable,booktabs}
+\usepackage{graphicx}
+% grffile has become a legacy package: https://ctan.org/pkg/grffile
+\IfFileExists{grffile.sty}{%
+\usepackage{grffile}
+}{}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\providecommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+
+\RequirePackage[]{/Library/Frameworks/R.framework/Versions/4.3-x86_64/Resources/library/BiocStyle/resources/tex/Bioconductor}
+
+\bioctitle[]{EXTruvIIInb: The EXTended RUV-III-NB}
+    \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+\author{Hsiao-Chi Liao}
+    \preauthor{\centering\large\emph}
+  \postauthor{\par}
+      \predate{\centering\large\emph}
+  \postdate{\par}
+    \date{2024-10-09}
+
+
+% code highlighting
+
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.816,0.125,0.439}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.251,0.627,0.251}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.502,0.502,0.502}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.251,0.251,0.251}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.125,0.125,0.941}{#1}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.251,0.251,0.251}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.878,0.439,0.125}{#1}}%
+\let\hlipl\hlkwb
+%
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+%
+\newenvironment{Shaded}{\begin{myshaded}}{\end{myshaded}}
+% set background for result chunks
+\let\oldverbatim\verbatim
+\renewenvironment{verbatim}{\color{codecolor}\begin{myshaded}\begin{oldverbatim}}{\end{oldverbatim}\end{myshaded}}
+%
+\newcommand{\KeywordTok}[1]{\hlkwd{#1}}
+\newcommand{\DataTypeTok}[1]{\hlkwc{#1}}
+\newcommand{\DecValTok}[1]{\hlnum{#1}}
+\newcommand{\BaseNTok}[1]{\hlnum{#1}}
+\newcommand{\FloatTok}[1]{\hlnum{#1}}
+\newcommand{\ConstantTok}[1]{\hlnum{#1}}
+\newcommand{\CharTok}[1]{\hlstr{#1}}
+\newcommand{\SpecialCharTok}[1]{\hlstr{#1}}
+\newcommand{\StringTok}[1]{\hlstr{#1}}
+\newcommand{\VerbatimStringTok}[1]{\hlstr{#1}}
+\newcommand{\SpecialStringTok}[1]{\hlstr{#1}}
+\newcommand{\ImportTok}[1]{{#1}}
+\newcommand{\CommentTok}[1]{\hlcom{#1}}
+\newcommand{\DocumentationTok}[1]{\hlcom{#1}}
+\newcommand{\AnnotationTok}[1]{\hlcom{#1}}
+\newcommand{\CommentVarTok}[1]{\hlcom{#1}}
+\newcommand{\OtherTok}[1]{{#1}}
+\newcommand{\FunctionTok}[1]{\hlstd{#1}}
+\newcommand{\VariableTok}[1]{\hlstd{#1}}
+\newcommand{\ControlFlowTok}[1]{\hlkwd{#1}}
+\newcommand{\OperatorTok}[1]{\hlopt{#1}}
+\newcommand{\BuiltInTok}[1]{{#1}}
+\newcommand{\ExtensionTok}[1]{{#1}}
+\newcommand{\PreprocessorTok}[1]{\textit{#1}}
+\newcommand{\AttributeTok}[1]{{#1}}
+\newcommand{\RegionMarkerTok}[1]{{#1}}
+\newcommand{\InformationTok}[1]{\textcolor{messagecolor}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor{warningcolor}{#1}}
+\newcommand{\AlertTok}[1]{\textcolor{errorcolor}{#1}}
+\newcommand{\ErrorTok}[1]{\textcolor{errorcolor}{#1}}
+\newcommand{\NormalTok}[1]{\hlstd{#1}}
+%
+\AtBeginDocument{\bibliographystyle{/Library/Frameworks/R.framework/Versions/4.3-x86_64/Resources/library/BiocStyle/resources/tex/unsrturl}}
+
+\usepackage{fvextra} \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
+\usepackage{amsmath}
+
+\begin{document}
+\maketitle
+
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+\newpage
+}
+\section{Introduction}\label{introduction}
+
+Single-cell multimodal technologies provide an opportunity to study biological mechanisms more comprehensively. The integrated analysis of matched single-cell transcriptomics (mRNA expression) and proteomics (protein abundance) data can help reveal biological insights that would not have been possible from separate analyses of each modality.
+
+\subsection{Motivation}\label{motivation}
+
+Unwanted variation from sources such as shared batches and modality-specific library size effects inevitably exists in the data from both domains. If not properly corrected, the unwanted variation can potentially lead to misleading conclusions being made from the downstream analyses. However, none of the existing methods adequately takes biological factors into account in their models, often leading to the removal of both biological and unwanted variations when they are associated. To address the limitations, we propose the Extended RUV-III-NB. Our model accounts for biology and decomposes unwanted variation into joint and modality-specific components, providing a clearer understanding of the unwanted variation present in the data.
+
+\subsection{The RUV-III-NB framework and the Extended RUV-III-NB model}\label{the-ruv-iii-nb-framework-and-the-extended-ruv-iii-nb-model}
+
+RUV-III-NB (Salim et al., 2022) is a method developed for removing unwanted variation from single-cell mRNA UMI counts, using a subset of annotated cells (as low as 5\%) for model training. RUV-III-NB infers unwanted factors without requiring them to be specified in the model, and provides two types of corrected counts: logPAC (percentile adjusted counts on the natural logarithm scale) and Pearson residuals. logPAC is derived from the probability mass function of the negative binomial distribution, while Pearson residuals are calculated using the first and second moments (the expected value and the variance) of the negative binomial distribution. Pearson residuals tend to be more robust when count data deviates from the negative binomial distribution, whereas logPAC provides more accurate results when the data approximates negative binomial.
+
+The model of the Extended RUV-III-NB which shares the same general structure with the RUV-III-NB model is as follows.
+
+\[
+\log(\boldsymbol{\mu_f})=\zeta_f\boldsymbol{1}+\boldsymbol{M}\boldsymbol{\beta_f}+\boldsymbol{W}\boldsymbol{\alpha_f},
+\]
+
+The Extended RUV-III-NB has a different design for the unwanted component \(\boldsymbol{W\alpha_f}\), where
+\(\boldsymbol{W}=
+\begin{bmatrix}
+\boldsymbol{W_1}|&\boldsymbol{W_2}|&\boldsymbol{W_3}
+\end{bmatrix}
+_{n \times (k_1+k_2+k_3)}\)
+
+\(\boldsymbol{\alpha_f}=
+\begin{bmatrix}
+\boldsymbol{\alpha_{1,f}} \\
+\boldsymbol{0} \\
+\boldsymbol{\alpha_{3,f}}
+\end{bmatrix}
+_{(k_1+k_3) \times 1}\) for \(f\) from the mRNA domain, and
+
+\(\boldsymbol{\alpha_f}=
+\begin{bmatrix}
+\boldsymbol{0} \\
+\boldsymbol{\alpha_{2,f}} \\
+\boldsymbol{\alpha_{3,f}}
+\end{bmatrix}
+_{(k_2+k_3) \times 1}\) for \(f\) from the protein domain.
+
+\section{Installing and loading the packages}\label{installing-and-loading-the-packages}
+
+We firstly install the Extended RUV-III-NB package with the following.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{devtools}\SpecialCharTok{::}\FunctionTok{install\_github}\NormalTok{(}\StringTok{"HsiaoChiLiao/EXTruvIIInb"}\NormalTok{, }\AttributeTok{build\_vignettes =} \ConstantTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Below packages are required for the analysis in this Vignette and are loaded below.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(EXTruvIIInb)}
+
+\FunctionTok{suppressPackageStartupMessages}\NormalTok{(\{}
+    \FunctionTok{library}\NormalTok{(ruvIIInb)}
+    \FunctionTok{library}\NormalTok{(DelayedArray)}
+    \FunctionTok{library}\NormalTok{(SingleCellExperiment)}
+    \FunctionTok{library}\NormalTok{(ggplot2)}
+    \FunctionTok{library}\NormalTok{(GGally)}
+    \FunctionTok{library}\NormalTok{(RColorBrewer)}
+    \FunctionTok{library}\NormalTok{(uwot)}
+    \FunctionTok{library}\NormalTok{(lisi)}
+    \FunctionTok{library}\NormalTok{(gridExtra)}
+    \FunctionTok{library}\NormalTok{(parallel)}
+    \FunctionTok{library}\NormalTok{(cowplot)}
+    \FunctionTok{library}\NormalTok{(metapod)}
+\NormalTok{\})}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Anslysing the Triana dataset with EXTruvIIInb}\label{anslysing-the-triana-dataset-with-extruviiinb}
+
+\subsection{The Triana dataset}\label{the-triana-dataset}
+
+This human bone marrow dataset was published by Triana et al.~(2021, Nature Immunology). After quality control (QC), this dataset contains 422 targeted mRNA features, and 97 proteins measured by oligo-tagged antibodies (Antibody-Derived Tags, ADT). A total of 9,663 cells were randomly selected from 49,057 cells from 3 healthy young adults and 3 healthy aged adults with each sample from a different batch, are used for the below demonstration.
+
+The build-in data \texttt{triana\_data} can be called by the function \texttt{data()} and it contains (1) the raw counts of mRNA and ADT features (\texttt{rna\_raw} and \texttt{adt\_raw}), (2) the metadata of the cells (cell annotation and batch information), (3) the negative control sets for inferring \({\boldsymbol W_1}\), \({\boldsymbol W_2}\), and \({\boldsymbol W_3}\)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# load the build{-}in data}
+\FunctionTok{data}\NormalTok{(}\StringTok{"triana\_data"}\NormalTok{)}
+\FunctionTok{str}\NormalTok{(triana\_data)}
+\CommentTok{\#\textgreater{} List of 6}
+\CommentTok{\#\textgreater{}  $ rna\_raw : num [1:9663, 1:422] 4 83 135 37 3 7 3 79 0 217 ...}
+\CommentTok{\#\textgreater{}   ..{-} attr(*, "dimnames")=List of 2}
+\CommentTok{\#\textgreater{}   .. ..$ : chr [1:9663] "705706\_Aged2\_705706\_4" "226650\_BM3\_226650\_8" "85319\_BM3\_85319\_8" "644530\_BM3\_644530\_8" ...}
+\CommentTok{\#\textgreater{}   .. ..$ : chr [1:422] "mod1\_ACTG1" "mod1\_ADGRG1" "mod1\_AIF1" "mod1\_ANKRD28" ...}
+\CommentTok{\#\textgreater{}  $ adt\_raw : num [1:9663, 1:97] 3 46 11 22 4 38 31 24 8 39 ...}
+\CommentTok{\#\textgreater{}   ..{-} attr(*, "dimnames")=List of 2}
+\CommentTok{\#\textgreater{}   .. ..$ : chr [1:9663] "705706\_Aged2\_705706\_4" "226650\_BM3\_226650\_8" "85319\_BM3\_85319\_8" "644530\_BM3\_644530\_8" ...}
+\CommentTok{\#\textgreater{}   .. ..$ : chr [1:97] "mod2\_B7.H4" "mod2\_CD10" "mod2\_CD103" "mod2\_CD117" ...}
+\CommentTok{\#\textgreater{}  $ metadata:\textquotesingle{}data.frame\textquotesingle{}:    9663 obs. of  4 variables:}
+\CommentTok{\#\textgreater{}   ..$ sample\_class    : chr [1:9663] "Old" "Young" "Young" "Young" ...}
+\CommentTok{\#\textgreater{}   ..$ sample\_batch    : chr [1:9663] "Aged2" "BM3" "BM3" "BM3" ...}
+\CommentTok{\#\textgreater{}   ..$ cellType\_broad  : chr [1:9663] "CD8+ T cells" "Monocytes" "HSCs \& MPPs" "CD8+ T cells" ...}
+\CommentTok{\#\textgreater{}   ..$ cellType\_refined: Factor w/ 43 levels "Plasma cells",..: 19 13 14 27 22 31 15 3 22 13 ...}
+\CommentTok{\#\textgreater{}  $ nc1     : chr [1:22] "mod1\_CKS1B" "mod1\_RSL1D1" "mod1\_NASP" "mod1\_PTMA" ...}
+\CommentTok{\#\textgreater{}  $ nc2     : chr [1:42] "mod2\_B7.H4" "mod2\_CD124" "mod2\_CD126" "mod2\_CD137" ...}
+\CommentTok{\#\textgreater{}  $ nc3     : chr [1:20] "mod2\_CD133" "mod1\_NPM1" "mod2\_CD33" "mod1\_CKAP5" ...}
+
+\CommentTok{\# the components in the \textquotesingle{}triana\_data\textquotesingle{} list}
+\NormalTok{rna\_raw }\OtherTok{\textless{}{-}}\NormalTok{ triana\_data}\SpecialCharTok{$}\NormalTok{rna\_raw}
+\NormalTok{adt\_raw }\OtherTok{\textless{}{-}}\NormalTok{ triana\_data}\SpecialCharTok{$}\NormalTok{adt\_raw}
+\NormalTok{meta }\OtherTok{\textless{}{-}}\NormalTok{ triana\_data}\SpecialCharTok{$}\NormalTok{meta}
+\NormalTok{nc1 }\OtherTok{\textless{}{-}}\NormalTok{ triana\_data}\SpecialCharTok{$}\NormalTok{nc1}
+\NormalTok{nc2 }\OtherTok{\textless{}{-}}\NormalTok{ triana\_data}\SpecialCharTok{$}\NormalTok{nc2}
+\NormalTok{nc3 }\OtherTok{\textless{}{-}}\NormalTok{ triana\_data}\SpecialCharTok{$}\NormalTok{nc3}
+
+\CommentTok{\# the raw counts}
+\NormalTok{rna\_raw[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{5}\NormalTok{, }\DecValTok{1}\SpecialCharTok{:}\DecValTok{3}\NormalTok{]}
+\CommentTok{\#\textgreater{}                       mod1\_ACTG1 mod1\_ADGRG1 mod1\_AIF1}
+\CommentTok{\#\textgreater{} 705706\_Aged2\_705706\_4          4           0         0}
+\CommentTok{\#\textgreater{} 226650\_BM3\_226650\_8           83           0        11}
+\CommentTok{\#\textgreater{} 85319\_BM3\_85319\_8            135           1        14}
+\CommentTok{\#\textgreater{} 644530\_BM3\_644530\_8           37           0         0}
+\CommentTok{\#\textgreater{} 263768\_Aged2\_263768\_4          3           4         0}
+\NormalTok{adt\_raw[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{5}\NormalTok{, }\DecValTok{1}\SpecialCharTok{:}\DecValTok{3}\NormalTok{]}
+\CommentTok{\#\textgreater{}                       mod2\_B7.H4 mod2\_CD10 mod2\_CD103}
+\CommentTok{\#\textgreater{} 705706\_Aged2\_705706\_4          3         3         11}
+\CommentTok{\#\textgreater{} 226650\_BM3\_226650\_8           46         4          6}
+\CommentTok{\#\textgreater{} 85319\_BM3\_85319\_8             11         4          0}
+\CommentTok{\#\textgreater{} 644530\_BM3\_644530\_8           22         1          1}
+\CommentTok{\#\textgreater{} 263768\_Aged2\_263768\_4          4         1          0}
+
+\CommentTok{\# the metadata for each cell}
+\FunctionTok{head}\NormalTok{(triana\_data}\SpecialCharTok{$}\NormalTok{meta)}
+\CommentTok{\#\textgreater{}                       sample\_class sample\_batch cellType\_broad}
+\CommentTok{\#\textgreater{} 705706\_Aged2\_705706\_4          Old        Aged2   CD8+ T cells}
+\CommentTok{\#\textgreater{} 226650\_BM3\_226650\_8          Young          BM3      Monocytes}
+\CommentTok{\#\textgreater{} 85319\_BM3\_85319\_8            Young          BM3    HSCs \& MPPs}
+\CommentTok{\#\textgreater{} 644530\_BM3\_644530\_8          Young          BM3   CD8+ T cells}
+\CommentTok{\#\textgreater{} 263768\_Aged2\_263768\_4          Old        Aged2   CD8+ T cells}
+\CommentTok{\#\textgreater{} 223764\_BM1\_223764\_9          Young          BM1     CD4+ cells}
+\CommentTok{\#\textgreater{}                                                cellType\_refined}
+\CommentTok{\#\textgreater{} 705706\_Aged2\_705706\_4 CD8+CD103+ tissue resident memory T cells}
+\CommentTok{\#\textgreater{} 226650\_BM3\_226650\_8                         Classical Monocytes}
+\CommentTok{\#\textgreater{} 85319\_BM3\_85319\_8                           Early promyelocytes}
+\CommentTok{\#\textgreater{} 644530\_BM3\_644530\_8                 CD8+ central memory T cells}
+\CommentTok{\#\textgreater{} 263768\_Aged2\_263768\_4              CD8+ effector memory T cells}
+\CommentTok{\#\textgreater{} 223764\_BM1\_223764\_9                          CD4+ naive T cells}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Running the vanilla EXTruvIIInb (the version without constraints)}\label{running-the-vanilla-extruviiinb-the-version-without-constraints}
+
+Based on our experience, a majority of the library size effect of each modality can usually be captured with one unwanted factor. Thus, we set \(k_1=k_2=1\) for the inference of the modality-specific library size (and other unknown unwanted variation), and \(k_3=2\) for capturing the joint unwanted effects.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Using known cell types to define pseudo{-}replicates}
+\NormalTok{anno }\OtherTok{\textless{}{-}}\NormalTok{ meta}\SpecialCharTok{$}\NormalTok{cellType\_broad}
+
+\CommentTok{\# Construct the replicate matrix M using the known}
+\CommentTok{\# cell{-}types}
+\NormalTok{unique\_ctype }\OtherTok{\textless{}{-}} \FunctionTok{unique}\NormalTok{(anno)[}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(}\FunctionTok{unique}\NormalTok{(anno))]}
+\NormalTok{M }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FunctionTok{nrow}\NormalTok{(meta), }\FunctionTok{length}\NormalTok{(unique\_ctype))}
+\FunctionTok{dim}\NormalTok{(M)}
+\CommentTok{\#\textgreater{} [1] 9663   13}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{length}\NormalTok{(unique\_ctype)) \{}
+\NormalTok{    M[anno }\SpecialCharTok{==}\NormalTok{ unique\_ctype[i], i] }\OtherTok{\textless{}{-}} \DecValTok{1}
+\NormalTok{\}}
+
+\CommentTok{\# Running with the vanilla Extended RUV{-}III{-}NB}
+\NormalTok{a }\OtherTok{\textless{}{-}} \FunctionTok{Sys.time}\NormalTok{()}
+\NormalTok{extruv3nb\_broad }\OtherTok{\textless{}{-}} \FunctionTok{extFastruvIIInb\_vanilla}\NormalTok{(}\AttributeTok{Y1 =} \FunctionTok{DelayedArray}\NormalTok{(}\FunctionTok{t}\NormalTok{(rna\_raw)),}
+    \AttributeTok{Y2 =} \FunctionTok{DelayedArray}\NormalTok{(}\FunctionTok{t}\NormalTok{(adt\_raw)), }\AttributeTok{M =}\NormalTok{ M, }\AttributeTok{ctl1 =}\NormalTok{ nc1, }\AttributeTok{ctl2 =}\NormalTok{ nc2,}
+    \AttributeTok{ctl3 =}\NormalTok{ nc3, }\AttributeTok{k1 =} \DecValTok{1}\NormalTok{, }\AttributeTok{k2 =} \DecValTok{1}\NormalTok{, }\AttributeTok{k3 =} \DecValTok{2}\NormalTok{, }\AttributeTok{ncores =} \DecValTok{2}\NormalTok{)}
+\CommentTok{\#\textgreater{} [1] "time to Winsorize RNA count matrix: 0.428452968597412"}
+\CommentTok{\#\textgreater{} [1] "time to Winsorize ADT count matrix: 0.0354330539703369"}
+\CommentTok{\#\textgreater{} [1] "Batch variable not supplied...assuming cells come from one batch"}
+\CommentTok{\#\textgreater{} Loading required package: limma}
+\CommentTok{\#\textgreater{} }
+\CommentTok{\#\textgreater{} Attaching package: \textquotesingle{}limma\textquotesingle{}}
+\CommentTok{\#\textgreater{} The following object is masked from \textquotesingle{}package:BiocGenerics\textquotesingle{}:}
+\CommentTok{\#\textgreater{} }
+\CommentTok{\#\textgreater{}     plotMA}
+\CommentTok{\#\textgreater{} }
+\CommentTok{\#\textgreater{} Attaching package: \textquotesingle{}edgeR\textquotesingle{}}
+\CommentTok{\#\textgreater{} The following object is masked from \textquotesingle{}package:SingleCellExperiment\textquotesingle{}:}
+\CommentTok{\#\textgreater{} }
+\CommentTok{\#\textgreater{}     cpm}
+\CommentTok{\#\textgreater{} [1] "Start..."}
+\CommentTok{\#\textgreater{} [1] "Inner iter:1"}
+\CommentTok{\#\textgreater{} [1] "Inner iter:1"}
+\CommentTok{\#\textgreater{} [1] "Outer Iter 1, Inner iter 1 logl{-}likelihood:{-}1697955.16063631"}
+\CommentTok{\#\textgreater{} [1] "Inner iter:2"}
+\CommentTok{\#\textgreater{} [1] "Outer Iter 1, Inner iter 2 logl{-}likelihood:{-}1667317.94083977"}
+\CommentTok{\#\textgreater{} [1] "Inner iter:3"}
+\CommentTok{\#\textgreater{} [1] "Inner iter:3"}
+\CommentTok{\#\textgreater{} [1] "Inner iter:3"}
+\CommentTok{\#\textgreater{} [1] "Outer Iter 1, Inner iter 3 logl{-}likelihood:{-}1667317.94083977"}
+\CommentTok{\#\textgreater{} [1] "If Updating psi in Outer Iter 1; will obtain logl{-}likelihood:{-}1643089.81012007"}
+\CommentTok{\#\textgreater{} [1] "Updating psi in Outer Iter 1; logl{-}likelihood:{-}1643089.81012007"}
+\CommentTok{\#\textgreater{} [1] "Inner iter:1"}
+\CommentTok{\#\textgreater{} [1] "Inner iter:1"}
+\CommentTok{\#\textgreater{} [1] "Inner iter:1"}
+\CommentTok{\#\textgreater{} [1] "Outer Iter 2, Inner iter 1 logl{-}likelihood:{-}1643089.81012007"}
+\CommentTok{\#\textgreater{} [1] "Inner iter:2"}
+\CommentTok{\#\textgreater{} [1] "Outer Iter 2, Inner iter 2 logl{-}likelihood:{-}1642805.60197101"}
+\CommentTok{\#\textgreater{} [1] "Inner iter:3"}
+\CommentTok{\#\textgreater{} [1] "Inner iter:3"}
+\CommentTok{\#\textgreater{} [1] "Inner iter:3"}
+\CommentTok{\#\textgreater{} [1] "Outer Iter 2, Inner iter 3 logl{-}likelihood:{-}1642805.60197101"}
+\CommentTok{\#\textgreater{} [1] "If Updating psi in Outer Iter 2; will obtain logl{-}likelihood:{-}1636977.2671381"}
+\CommentTok{\#\textgreater{} [1] "Updating psi in Outer Iter 2; logl{-}likelihood:{-}1636977.2671381"}
+\CommentTok{\#\textgreater{} [1] "Inner iter:1"}
+\CommentTok{\#\textgreater{} [1] "Outer Iter 3, Inner iter 1 logl{-}likelihood:{-}1626187.91248193"}
+\CommentTok{\#\textgreater{} [1] "Inner iter:2"}
+\CommentTok{\#\textgreater{} [1] "Outer Iter 3, Inner iter 2 logl{-}likelihood:{-}1592750.97047239"}
+\CommentTok{\#\textgreater{} [1] "Inner iter:3"}
+\CommentTok{\#\textgreater{} [1] "Inner iter:3"}
+\CommentTok{\#\textgreater{} [1] "Inner iter:3"}
+\CommentTok{\#\textgreater{} [1] "Outer Iter 3, Inner iter 3 logl{-}likelihood:{-}1592750.97047239"}
+\CommentTok{\#\textgreater{} [1] "If Updating psi in Outer Iter 3; will obtain logl{-}likelihood:{-}1583931.9136506"}
+\CommentTok{\#\textgreater{} [1] "Updating psi in Outer Iter 3; logl{-}likelihood:{-}1583931.9136506"}
+\CommentTok{\#\textgreater{} [1] "Inner iter:1"}
+\CommentTok{\#\textgreater{} [1] "Inner iter:1"}
+\CommentTok{\#\textgreater{} [1] "Outer Iter 4, Inner iter 1 logl{-}likelihood:{-}1582319.75025595"}
+\CommentTok{\#\textgreater{} [1] "Inner iter:2"}
+\CommentTok{\#\textgreater{} [1] "Outer Iter 4, Inner iter 2 logl{-}likelihood:{-}1572046.2707892"}
+\CommentTok{\#\textgreater{} [1] "Inner iter:3"}
+\CommentTok{\#\textgreater{} [1] "Inner iter:3"}
+\CommentTok{\#\textgreater{} [1] "Inner iter:3"}
+\CommentTok{\#\textgreater{} [1] "Outer Iter 4, Inner iter 3 logl{-}likelihood:{-}1572046.2707892"}
+\CommentTok{\#\textgreater{} [1] "If Updating psi in Outer Iter 4; will obtain logl{-}likelihood:{-}1569424.87666865"}
+\CommentTok{\#\textgreater{} [1] "Updating psi in Outer Iter 4; logl{-}likelihood:{-}1569424.87666865"}
+\CommentTok{\#\textgreater{} [1] "Inner iter:1"}
+\CommentTok{\#\textgreater{} [1] "Inner iter:1"}
+\CommentTok{\#\textgreater{} [1] "Inner iter:1"}
+\CommentTok{\#\textgreater{} [1] "Outer Iter 5, Inner iter 1 logl{-}likelihood:{-}1569424.87666865"}
+\CommentTok{\#\textgreater{} [1] "Inner iter:2"}
+\CommentTok{\#\textgreater{} [1] "Inner iter:2"}
+\CommentTok{\#\textgreater{} [1] "Inner iter:2"}
+\CommentTok{\#\textgreater{} [1] "Outer Iter 5, Inner iter 2 logl{-}likelihood:{-}1569424.87666865"}
+\CommentTok{\#\textgreater{} [1] "If Updating psi in Outer Iter 5; will obtain logl{-}likelihood:{-}1569424.87666865"}
+\CommentTok{\#\textgreater{} [1] "Updating psi in Outer Iter 5; logl{-}likelihood:{-}1569424.87666865"}
+\CommentTok{\#\textgreater{} [1] "Both loops converged; checking the logl{-}likelihood again: {-}1569424.87666865"}
+\CommentTok{\#\textgreater{} [1] "Estimating W for all samples..."}
+\CommentTok{\#\textgreater{} [1] "Estimating Mb...."}
+\NormalTok{b }\OtherTok{\textless{}{-}} \FunctionTok{Sys.time}\NormalTok{()}
+\FunctionTok{print}\NormalTok{(}\StringTok{"finished!"}\NormalTok{)}
+\CommentTok{\#\textgreater{} [1] "finished!"}
+\FunctionTok{print}\NormalTok{(b }\SpecialCharTok{{-}}\NormalTok{ a)}
+\CommentTok{\#\textgreater{} Time difference of 2.066338 mins}
+\end{Highlighting}
+\end{Shaded}
+
+The \texttt{extruv3nb\_broad} is an R object that contains the corrected data and the parameters estimated by the model.
+
+\section{Results}\label{results}
+
+\subsection{The convergence}\label{the-convergence}
+
+Firstly, we check the convergence of the modified IRLS by examining the log-likelihood values from the iterations. In the modified IRLS algorithm, the inner loop updates parameters relevant to the mean parameter \(\mu\) and the outer loop updates the dispersion parameter \(\psi\).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# extruv3nb\_broad$logl.outer extruv3nb\_broad$logl.inner.ls}
+
+\NormalTok{loglik }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(extruv3nb\_broad}\SpecialCharTok{$}\NormalTok{logl.inner.ls[[}\DecValTok{1}\NormalTok{]], extruv3nb\_broad}\SpecialCharTok{$}\NormalTok{logl.outer[}\DecValTok{1}\NormalTok{],}
+\NormalTok{    extruv3nb\_broad}\SpecialCharTok{$}\NormalTok{logl.inner.ls[[}\DecValTok{2}\NormalTok{]], extruv3nb\_broad}\SpecialCharTok{$}\NormalTok{logl.outer[}\DecValTok{2}\NormalTok{],}
+\NormalTok{    extruv3nb\_broad}\SpecialCharTok{$}\NormalTok{logl.inner.ls[[}\DecValTok{3}\NormalTok{]], extruv3nb\_broad}\SpecialCharTok{$}\NormalTok{logl.outer[}\DecValTok{3}\NormalTok{],}
+\NormalTok{    extruv3nb\_broad}\SpecialCharTok{$}\NormalTok{logl.inner.ls[[}\DecValTok{4}\NormalTok{]], extruv3nb\_broad}\SpecialCharTok{$}\NormalTok{logl.outer[}\DecValTok{4}\NormalTok{],}
+\NormalTok{    extruv3nb\_broad}\SpecialCharTok{$}\NormalTok{logl.inner.ls[[}\DecValTok{5}\NormalTok{]], extruv3nb\_broad}\SpecialCharTok{$}\NormalTok{logl.outer[}\DecValTok{5}\NormalTok{])}
+\CommentTok{\# iii o iii o iii o iii o ii o}
+
+\NormalTok{df\_graph }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{loglik =}\NormalTok{ loglik, }\AttributeTok{iteration =} \FunctionTok{c}\NormalTok{(}\FunctionTok{paste0}\NormalTok{(}\DecValTok{0}\NormalTok{,}
+    \DecValTok{1}\SpecialCharTok{:}\DecValTok{3}\NormalTok{), }\StringTok{"10"}\NormalTok{, }\FunctionTok{paste0}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{1}\SpecialCharTok{:}\DecValTok{3}\NormalTok{), }\StringTok{"20"}\NormalTok{, }\FunctionTok{paste0}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{1}\SpecialCharTok{:}\DecValTok{3}\NormalTok{), }\StringTok{"30"}\NormalTok{, }\FunctionTok{paste0}\NormalTok{(}\DecValTok{3}\NormalTok{,}
+    \DecValTok{1}\SpecialCharTok{:}\DecValTok{3}\NormalTok{), }\StringTok{"40"}\NormalTok{, }\FunctionTok{paste0}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{1}\SpecialCharTok{:}\DecValTok{2}\NormalTok{), }\StringTok{"50"}\NormalTok{), }\AttributeTok{update =} \FunctionTok{c}\NormalTok{(}\FunctionTok{rep}\NormalTok{(}\StringTok{"mu"}\NormalTok{, }\DecValTok{3}\NormalTok{),}
+    \StringTok{"psi"}\NormalTok{, }\FunctionTok{rep}\NormalTok{(}\StringTok{"mu"}\NormalTok{, }\DecValTok{3}\NormalTok{), }\StringTok{"psi"}\NormalTok{, }\FunctionTok{rep}\NormalTok{(}\StringTok{"mu"}\NormalTok{, }\DecValTok{3}\NormalTok{), }\StringTok{"psi"}\NormalTok{, }\FunctionTok{rep}\NormalTok{(}\StringTok{"mu"}\NormalTok{,}
+        \DecValTok{3}\NormalTok{), }\StringTok{"psi"}\NormalTok{, }\FunctionTok{rep}\NormalTok{(}\StringTok{"mu"}\NormalTok{, }\DecValTok{2}\NormalTok{), }\StringTok{"psi"}\NormalTok{))}
+
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ df\_graph, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ iteration, }\AttributeTok{y =}\NormalTok{ loglik, }\AttributeTok{group =} \DecValTok{1}\NormalTok{)) }\SpecialCharTok{+}
+    \FunctionTok{geom\_line}\NormalTok{(}\AttributeTok{linewidth =} \DecValTok{2}\NormalTok{) }\SpecialCharTok{+} \FunctionTok{geom\_point}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{shape =}\NormalTok{ update,}
+    \AttributeTok{color =}\NormalTok{ update), }\AttributeTok{size =} \DecValTok{5}\NormalTok{) }\SpecialCharTok{+} \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Log{-}likelihood values (y{-}axis) from iterations (x{-}axis)"}\NormalTok{,}
+    \AttributeTok{subtitle =} \StringTok{"Format of labels on x{-}axis: OuterInner"}\NormalTok{) }\SpecialCharTok{+} \FunctionTok{theme\_bw}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{adjustwidth}{\fltoffset}{0mm}
+\includegraphics[width=1\linewidth,]{EXTruvIIInb_vignette_files/figure-latex/converg-1} \end{adjustwidth}
+
+The log-likelihood values (on the y-axis) increase in the later iterations, indicating that the algorithm is performing as intended.
+
+\subsection{The corrected data}\label{the-corrected-data}
+
+Then, to obtain the corrected data, we run the below.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Creating a SingleCellExperiment object}
+\NormalTok{sce\_extruv3nb\_broad }\OtherTok{\textless{}{-}} \FunctionTok{makeSCE2}\NormalTok{(extruv3nb\_broad, }\AttributeTok{cData =}\NormalTok{ meta)}
+\CommentTok{\#\textgreater{} Loading required package: rhdf5}
+\CommentTok{\#\textgreater{} }
+\CommentTok{\#\textgreater{} Attaching package: \textquotesingle{}HDF5Array\textquotesingle{}}
+\CommentTok{\#\textgreater{} The following object is masked from \textquotesingle{}package:rhdf5\textquotesingle{}:}
+\CommentTok{\#\textgreater{} }
+\CommentTok{\#\textgreater{}     h5ls}
+\CommentTok{\#\textgreater{} [1] "1/2"}
+\CommentTok{\#\textgreater{} [1] "2/2"}
+\CommentTok{\#\textgreater{} [1] "1/2"}
+\CommentTok{\#\textgreater{} [1] "2/2"}
+\CommentTok{\#\textgreater{} [1] "1/2"}
+\CommentTok{\#\textgreater{} [1] "2/2"}
+\CommentTok{\#\textgreater{} [1] "1/2"}
+\CommentTok{\#\textgreater{} [1] "2/2"}
+\CommentTok{\#\textgreater{} [1] "1/2"}
+\CommentTok{\#\textgreater{} [1] "2/2"}
+\CommentTok{\#\textgreater{} [1] "1/2"}
+\CommentTok{\#\textgreater{} [1] "2/2"}
+\FunctionTok{print}\NormalTok{(}\StringTok{"passed converting to sce"}\NormalTok{)}
+\CommentTok{\#\textgreater{} [1] "passed converting to sce"}
+
+\CommentTok{\# Obtaining corrected data the percentile adjusted count on}
+\CommentTok{\# the natural log scale}
+\NormalTok{rna\_logPAC }\OtherTok{\textless{}{-}} \FunctionTok{as.matrix}\NormalTok{(}\FunctionTok{assays}\NormalTok{(sce\_extruv3nb\_broad[[}\DecValTok{1}\NormalTok{]])}\SpecialCharTok{$}\NormalTok{logPAC)}
+\NormalTok{adt\_logPAC }\OtherTok{\textless{}{-}} \FunctionTok{as.matrix}\NormalTok{(}\FunctionTok{assays}\NormalTok{(sce\_extruv3nb\_broad[[}\DecValTok{2}\NormalTok{]])}\SpecialCharTok{$}\NormalTok{logPAC)}
+\CommentTok{\# the Pearson residuals}
+\NormalTok{rna\_PearsonRes }\OtherTok{\textless{}{-}} \FunctionTok{as.matrix}\NormalTok{(}\FunctionTok{assays}\NormalTok{(sce\_extruv3nb\_broad[[}\DecValTok{1}\NormalTok{]])}\SpecialCharTok{$}\NormalTok{pearson)}
+\NormalTok{adt\_PearsonRes }\OtherTok{\textless{}{-}} \FunctionTok{as.matrix}\NormalTok{(}\FunctionTok{assays}\NormalTok{(sce\_extruv3nb\_broad[[}\DecValTok{2}\NormalTok{]])}\SpecialCharTok{$}\NormalTok{pearson)}
+\end{Highlighting}
+\end{Shaded}
+
+Although we perform the downstream analysis using the percentile adjusted counts on the natural log scale, the corrected counts can be obtained with the following.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# the corrected count matrix of mRNA features (genes on}
+\CommentTok{\# rows and cells on columns)}
+\NormalTok{(}\FunctionTok{exp}\NormalTok{(rna\_logPAC) }\SpecialCharTok{{-}} \DecValTok{1}\NormalTok{)[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{5}\NormalTok{, }\DecValTok{1}\SpecialCharTok{:}\DecValTok{3}\NormalTok{]}
+\CommentTok{\#\textgreater{}              705706\_Aged2\_705706\_4 226650\_BM3\_226650\_8 85319\_BM3\_85319\_8}
+\CommentTok{\#\textgreater{} mod1\_ACTG1                      18                  17                10}
+\CommentTok{\#\textgreater{} mod1\_ADGRG1                      0                   0                 0}
+\CommentTok{\#\textgreater{} mod1\_AIF1                        0                   4                 1}
+\CommentTok{\#\textgreater{} mod1\_ANKRD28                     0                   0                 0}
+\CommentTok{\#\textgreater{} mod1\_ANLN                        0                   0                 0}
+\CommentTok{\# the corrected count matrix of protein features (proteins}
+\CommentTok{\# on rows and cells on columns)}
+\NormalTok{(}\FunctionTok{exp}\NormalTok{(adt\_logPAC) }\SpecialCharTok{{-}} \DecValTok{1}\NormalTok{)[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{5}\NormalTok{, }\DecValTok{1}\SpecialCharTok{:}\DecValTok{3}\NormalTok{]}
+\CommentTok{\#\textgreater{}            705706\_Aged2\_705706\_4 226650\_BM3\_226650\_8 85319\_BM3\_85319\_8}
+\CommentTok{\#\textgreater{} mod2\_B7.H4                    19                  17                23}
+\CommentTok{\#\textgreater{} mod2\_CD10                     10                   1                 6}
+\CommentTok{\#\textgreater{} mod2\_CD103                    39                   0                 0}
+\CommentTok{\#\textgreater{} mod2\_CD117                    10                  10                78}
+\CommentTok{\#\textgreater{} mod2\_CD11a                   161                 152                55}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{The inferred unwanted factors}\label{the-inferred-unwanted-factors}
+
+For interpreting the inferred unwanted factors, we make panels of scatter plots, coloured the cells (dots) by the batch they came from, to examine the relationship between \(logLS\) and the vectors in the \(\boldsymbol W\) matrics.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{gp.dat }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{logLS\_RNA =} \FunctionTok{log}\NormalTok{(}\FunctionTok{apply}\NormalTok{(rna\_raw, }\DecValTok{1}\NormalTok{, sum) }\SpecialCharTok{+}
+    \DecValTok{1}\NormalTok{), }\AttributeTok{logLS\_ADT =} \FunctionTok{log}\NormalTok{(}\FunctionTok{apply}\NormalTok{(adt\_raw, }\DecValTok{1}\NormalTok{, sum) }\SpecialCharTok{+} \DecValTok{1}\NormalTok{), }\AttributeTok{Ws =} \FunctionTok{cbind}\NormalTok{(}\AttributeTok{W1 =}\NormalTok{ extruv3nb\_broad}\SpecialCharTok{$}\NormalTok{W1,}
+    \AttributeTok{W2 =}\NormalTok{ extruv3nb\_broad}\SpecialCharTok{$}\NormalTok{W2, }\AttributeTok{W3 =}\NormalTok{ extruv3nb\_broad}\SpecialCharTok{$}\NormalTok{W3))}
+\FunctionTok{colnames}\NormalTok{(gp.dat)[}\SpecialCharTok{{-}}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{2}\NormalTok{)] }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"W1"}\NormalTok{, }\StringTok{"W2"}\NormalTok{, }\StringTok{"W3\_1"}\NormalTok{, }\StringTok{"W3\_2"}\NormalTok{)}
+
+\NormalTok{p }\OtherTok{\textless{}{-}} \FunctionTok{ggpairs}\NormalTok{(gp.dat, }\AttributeTok{columns =} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{dim}\NormalTok{(gp.dat)[}\DecValTok{2}\NormalTok{], }\FunctionTok{aes}\NormalTok{(}\AttributeTok{color =} \FunctionTok{as.factor}\NormalTok{(meta}\SpecialCharTok{$}\NormalTok{sample\_batch),}
+    \AttributeTok{alpha =} \FloatTok{0.5}\NormalTok{), }\AttributeTok{upper =} \FunctionTok{list}\NormalTok{(}\AttributeTok{continuous =} \FunctionTok{wrap}\NormalTok{(}\StringTok{"cor"}\NormalTok{, }\AttributeTok{size =} \DecValTok{2}\NormalTok{)),}
+    \AttributeTok{lower =} \FunctionTok{list}\NormalTok{(}\AttributeTok{continuous =} \FunctionTok{wrap}\NormalTok{(}\StringTok{"points"}\NormalTok{, }\AttributeTok{size =} \FloatTok{0.1}\NormalTok{)), }\AttributeTok{title =} \FunctionTok{paste0}\NormalTok{(}\StringTok{"Relationship between logLS and unwanted factors"}\NormalTok{)) }\SpecialCharTok{+}
+    \FunctionTok{theme}\NormalTok{(}\AttributeTok{axis.text =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{10}\NormalTok{), }\AttributeTok{axis.text.x =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{angle =} \DecValTok{45}\NormalTok{,}
+        \AttributeTok{hjust =} \DecValTok{1}\NormalTok{)) }\SpecialCharTok{+} \FunctionTok{theme\_bw}\NormalTok{()}
+\FunctionTok{print}\NormalTok{(p)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{adjustwidth}{\fltoffset}{0mm}
+\includegraphics[width=1\linewidth,]{EXTruvIIInb_vignette_files/figure-latex/UnwantF-1} \end{adjustwidth}
+
+From the figure above, as shown in the high correlations, \(\boldsymbol W_1\) and \(\boldsymbol W_2\) capture \(logLS_{mRNA}\) and \(logLS_{ADT}\) effects, respectively. The batch effects that is associated with the library size effect are captured by the modality-specific unwanted factors \(\boldsymbol W_1\) and \(\boldsymbol W_2\) as well. \(\boldsymbol W_3\) captures leftover batch effects and unknown unwanted variation.
+
+\subsection{Assessing the corrected data with LISI scores and UMAP representations}\label{assessing-the-corrected-data-with-lisi-scores-and-umap-representations}
+
+For the assessment, we employ the Local Inverse Simpson's Index (LISI) scores to examine the biological signal and leftover unwanted variation in the corrected data, and use UMAP plots for visualisation.
+
+Firstly, the UMAP coordinates need to be derived before calculating the LISI scores and the visualisation.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# umap for raw}
+\NormalTok{umap\_raw\_rna }\OtherTok{\textless{}{-}} \FunctionTok{umap}\NormalTok{(}\FunctionTok{log}\NormalTok{(rna\_raw }\SpecialCharTok{+} \DecValTok{1}\NormalTok{))}
+\NormalTok{umap\_raw\_adt }\OtherTok{\textless{}{-}} \FunctionTok{umap}\NormalTok{(}\FunctionTok{log}\NormalTok{(adt\_raw }\SpecialCharTok{+} \DecValTok{1}\NormalTok{))}
+\NormalTok{umap\_raw\_both }\OtherTok{\textless{}{-}} \FunctionTok{umap}\NormalTok{(}\FunctionTok{log}\NormalTok{(}\FunctionTok{cbind}\NormalTok{(rna\_raw, adt\_raw) }\SpecialCharTok{+} \DecValTok{1}\NormalTok{))}
+\CommentTok{\# umap for logPAC}
+\NormalTok{umap\_logpac\_rna }\OtherTok{\textless{}{-}} \FunctionTok{umap}\NormalTok{(}\FunctionTok{t}\NormalTok{(rna\_logPAC))}
+\NormalTok{umap\_logpac\_adt }\OtherTok{\textless{}{-}} \FunctionTok{umap}\NormalTok{(}\FunctionTok{t}\NormalTok{(adt\_logPAC))}
+\NormalTok{umap\_logpac\_both }\OtherTok{\textless{}{-}} \FunctionTok{umap}\NormalTok{(}\FunctionTok{cbind}\NormalTok{(}\FunctionTok{t}\NormalTok{(rna\_logPAC), }\FunctionTok{t}\NormalTok{(adt\_logPAC)))}
+\CommentTok{\# umap for PR}
+\NormalTok{umap\_pr\_rna }\OtherTok{\textless{}{-}} \FunctionTok{umap}\NormalTok{(}\FunctionTok{t}\NormalTok{(rna\_PearsonRes))}
+\NormalTok{umap\_pr\_adt }\OtherTok{\textless{}{-}} \FunctionTok{umap}\NormalTok{(}\FunctionTok{t}\NormalTok{(adt\_PearsonRes))}
+\NormalTok{umap\_pr\_both }\OtherTok{\textless{}{-}} \FunctionTok{umap}\NormalTok{(}\FunctionTok{cbind}\NormalTok{(}\FunctionTok{t}\NormalTok{(rna\_PearsonRes), }\FunctionTok{t}\NormalTok{(adt\_PearsonRes)))}
+
+\NormalTok{all.umap.ls }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{(umap\_raw\_both, umap\_logpac\_both, umap\_pr\_both)}
+\FunctionTok{names}\NormalTok{(all.umap.ls) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"raw"}\NormalTok{, }\StringTok{"logPAC"}\NormalTok{, }\StringTok{"PearsonResidual"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{The LISI scores}\label{the-lisi-scores}
+
+The LISI score measures the diversity within each observation's local neighbourhood, and can be applied to evaluate the diversity of the neighbourhood around each cell.
+For cell \(i\), LISI is defined as
+\[
+  LISI_i=\frac{1}{\lambda}=\frac{1}{\Sigma^R_{k=1}p^2_k},
+\]
+where \(R\) is the total number of categories (e.g., cluster labels, cell annotation) and \(p_k\) is the proportional abundance of category \(k\), and \(\frac{1}{\lambda}\) ranges from 1 to \(R\) (inclusive). When all cells are in the same cluster, representing the smallest diversity of the neighbouring cells, the LISI score is 1. Higher LISI scores indicate higher local diversity of the data. The largest LISI score \(R\) represents the highest diversity of the neighbourhood.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ord.meta }\OtherTok{\textless{}{-}}\NormalTok{ meta[}\FunctionTok{match}\NormalTok{(}\FunctionTok{rownames}\NormalTok{(all.umap.ls[[}\DecValTok{1}\NormalTok{]]), }\FunctionTok{rownames}\NormalTok{(meta)),}
+\NormalTok{    ]}
+
+\DocumentationTok{\#\# only calculate for big enough CTs}
+\NormalTok{freq.tab }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\FunctionTok{table}\NormalTok{(ord.meta}\SpecialCharTok{$}\NormalTok{cellType\_broad))}
+\NormalTok{big.ct }\OtherTok{\textless{}{-}} \FunctionTok{as.character}\NormalTok{(freq.tab}\SpecialCharTok{$}\NormalTok{Var1[}\FunctionTok{which}\NormalTok{(freq.tab}\SpecialCharTok{$}\NormalTok{Freq }\SpecialCharTok{\textgreater{}} \DecValTok{150}\NormalTok{)])}
+
+\NormalTok{extr.cell }\OtherTok{\textless{}{-}} \FunctionTok{which}\NormalTok{(ord.meta}\SpecialCharTok{$}\NormalTok{cellType\_broad }\SpecialCharTok{\%in\%}\NormalTok{ big.ct)}
+\NormalTok{meta }\OtherTok{\textless{}{-}}\NormalTok{ ord.meta[extr.cell, ]}
+
+\DocumentationTok{\#\#}
+\NormalTok{umap.ls }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{()}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{length}\NormalTok{(all.umap.ls)) \{}
+\NormalTok{    umap.ls[[i]] }\OtherTok{\textless{}{-}}\NormalTok{ all.umap.ls[[i]][extr.cell, ]}
+\NormalTok{\}}
+\FunctionTok{names}\NormalTok{(umap.ls) }\OtherTok{\textless{}{-}} \FunctionTok{names}\NormalTok{(all.umap.ls)}
+
+\DocumentationTok{\#\# calculating LISI bio. LISI}
+\NormalTok{lisi.bio.ls }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{()}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{length}\NormalTok{(umap.ls)) \{}
+
+    \ControlFlowTok{if}\NormalTok{ (}\FunctionTok{is.character}\NormalTok{(umap.ls[[i]])) \{}
+\NormalTok{        lisi.bio.ls[[i]] }\OtherTok{\textless{}{-}} \ConstantTok{NA}
+\NormalTok{    \} }\ControlFlowTok{else}\NormalTok{ \{}
+\NormalTok{        lisi\_bio }\OtherTok{\textless{}{-}} \FunctionTok{compute\_lisi}\NormalTok{(umap.ls[[i]], meta, }\StringTok{"cellType\_broad"}\NormalTok{)}
+\NormalTok{        lisi.bio.ls[[i]] }\OtherTok{\textless{}{-}}\NormalTok{ lisi\_bio}
+\NormalTok{    \}}
+\NormalTok{\}}
+
+\DocumentationTok{\#\#\# bat. LISI}
+\NormalTok{lisi.bat.ls }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{()}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{length}\NormalTok{(umap.ls)) \{}
+
+    \ControlFlowTok{if}\NormalTok{ (}\FunctionTok{is.character}\NormalTok{(umap.ls[[i]])) \{}
+\NormalTok{        lisi.bat.ls[[i]] }\OtherTok{\textless{}{-}} \ConstantTok{NA}
+\NormalTok{    \} }\ControlFlowTok{else}\NormalTok{ \{}
+\NormalTok{        lisi.bat.ls.ls }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{()}
+        \ControlFlowTok{for}\NormalTok{ (z }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{length}\NormalTok{(}\FunctionTok{unique}\NormalTok{(meta}\SpecialCharTok{$}\NormalTok{cellType\_broad))) \{}
+\NormalTok{            umap.here }\OtherTok{\textless{}{-}}\NormalTok{ umap.ls[[i]][}\FunctionTok{which}\NormalTok{(meta}\SpecialCharTok{$}\NormalTok{cellType\_broad }\SpecialCharTok{==}
+                \FunctionTok{unique}\NormalTok{(meta}\SpecialCharTok{$}\NormalTok{cellType\_broad)[z]), ]}
+\NormalTok{            meta.here }\OtherTok{\textless{}{-}}\NormalTok{ meta[}\FunctionTok{which}\NormalTok{(meta}\SpecialCharTok{$}\NormalTok{cellType\_broad }\SpecialCharTok{==} \FunctionTok{unique}\NormalTok{(meta}\SpecialCharTok{$}\NormalTok{cellType\_broad)[z]),}
+\NormalTok{                ]}
+\NormalTok{            lisi\_bat }\OtherTok{\textless{}{-}} \FunctionTok{compute\_lisi}\NormalTok{(umap.here, meta.here, }\StringTok{"sample\_batch"}\NormalTok{)}
+\NormalTok{            lisi.bat.ls.ls[[z]] }\OtherTok{\textless{}{-}}\NormalTok{ lisi\_bat}
+\NormalTok{        \}}
+        \FunctionTok{names}\NormalTok{(lisi.bat.ls.ls) }\OtherTok{\textless{}{-}} \FunctionTok{unique}\NormalTok{(meta}\SpecialCharTok{$}\NormalTok{cellType\_broad)}
+\NormalTok{        lisi.bat.ls[[i]] }\OtherTok{\textless{}{-}}\NormalTok{ lisi.bat.ls.ls}
+\NormalTok{    \}}
+\NormalTok{\}}
+
+\FunctionTok{names}\NormalTok{(lisi.bio.ls) }\OtherTok{=} \FunctionTok{names}\NormalTok{(lisi.bat.ls) }\OtherTok{\textless{}{-}} \FunctionTok{names}\NormalTok{(umap.ls)}
+\end{Highlighting}
+\end{Shaded}
+
+The LISI score for each cell allows us to explore the diversity of its neighbourhood. When the LISI metric for a cell reaches the number of the categories of interest (the upper bound), it represents the highest diversity of its neighbourhood achieved. In general, larger batch LISI scores for cells are expected from an effective normalisation method as it indicates that the local neighbours of each cell are of high diversity, suggesting that cells from different batches are well-mixed. On the other hand, smaller biological LISI scores are preferred for a good normalisation method because lower values represent the preservation of the biological structure in the corrected data.
+
+Below are the distributions of the LISI scores for the Extended RUV-III-NB corrected data in comparison to the raw data, presented on the natural logarithm scale.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{adjDat\_col }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"\#999999"}\NormalTok{, }\FunctionTok{brewer.pal}\NormalTok{(}\DecValTok{3}\NormalTok{, }\StringTok{"Dark2"}\NormalTok{)[}\FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{)])}
+
+\DocumentationTok{\#\# bio LISI}
+\NormalTok{bio.lisi }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{Bio\_LISI =} \FunctionTok{c}\NormalTok{(lisi.bio.ls[[}\DecValTok{1}\NormalTok{]]}\SpecialCharTok{$}\NormalTok{cellType\_broad,}
+\NormalTok{    lisi.bio.ls[[}\DecValTok{2}\NormalTok{]]}\SpecialCharTok{$}\NormalTok{cellType\_broad, lisi.bio.ls[[}\DecValTok{3}\NormalTok{]]}\SpecialCharTok{$}\NormalTok{cellType\_broad),}
+    \AttributeTok{Data =} \FunctionTok{c}\NormalTok{(}\FunctionTok{rep}\NormalTok{(}\StringTok{"Raw"}\NormalTok{, }\FunctionTok{length}\NormalTok{(lisi.bio.ls[[}\DecValTok{1}\NormalTok{]]}\SpecialCharTok{$}\NormalTok{cellType\_broad)),}
+        \FunctionTok{rep}\NormalTok{(}\StringTok{"logPAC"}\NormalTok{, }\FunctionTok{length}\NormalTok{(lisi.bio.ls[[}\DecValTok{2}\NormalTok{]]}\SpecialCharTok{$}\NormalTok{cellType\_broad)),}
+        \FunctionTok{rep}\NormalTok{(}\StringTok{"Pearson Residual"}\NormalTok{, }\FunctionTok{length}\NormalTok{(lisi.bio.ls[[}\DecValTok{3}\NormalTok{]]}\SpecialCharTok{$}\NormalTok{cellType\_broad))))}
+\NormalTok{bio.lisi}\SpecialCharTok{$}\NormalTok{Data }\OtherTok{\textless{}{-}} \FunctionTok{factor}\NormalTok{(bio.lisi}\SpecialCharTok{$}\NormalTok{Data, }\AttributeTok{levels =} \FunctionTok{c}\NormalTok{(}\StringTok{"Raw"}\NormalTok{, }\StringTok{"logPAC"}\NormalTok{,}
+    \StringTok{"Pearson Residual"}\NormalTok{))}
+\NormalTok{p1 }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(bio.lisi, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Data, }\AttributeTok{y =} \FunctionTok{log}\NormalTok{(Bio\_LISI), }\AttributeTok{fill =}\NormalTok{ Data)) }\SpecialCharTok{+}
+    \FunctionTok{ggtitle}\NormalTok{(}\StringTok{"Biological LISI {-} the distributions of cells"}\NormalTok{) }\SpecialCharTok{+}
+    \FunctionTok{geom\_boxplot}\NormalTok{(}\AttributeTok{outlier.shape =} \ConstantTok{NA}\NormalTok{) }\SpecialCharTok{+} \FunctionTok{coord\_cartesian}\NormalTok{(}\AttributeTok{ylim =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}
+    \FloatTok{0.3}\NormalTok{)) }\SpecialCharTok{+} \FunctionTok{scale\_fill\_manual}\NormalTok{(}\AttributeTok{values =}\NormalTok{ adjDat\_col) }\SpecialCharTok{+} \FunctionTok{theme\_bw}\NormalTok{()}
+\FunctionTok{print}\NormalTok{(p1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{adjustwidth}{\fltoffset}{0mm}
+\includegraphics[width=1\linewidth,]{EXTruvIIInb_vignette_files/figure-latex/lisi_fig_bio-1} \end{adjustwidth}
+
+For better comparison, the biological LISI scores are shown on the natural logarithm scale. We expect low biological LISI scores for cells derived from the corrected data that was effectively normalised, indicating the preservation of biology. From the above figure, the distributions of the LISI scores from the corrected data (both logPAC and the Pearson residuals) are lower than those from the raw data (\(log(raw.count + 1)\)), suggesting successful retention and uncovering of biological signals.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{adjDat\_col }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"\#999999"}\NormalTok{, }\FunctionTok{brewer.pal}\NormalTok{(}\DecValTok{3}\NormalTok{, }\StringTok{"Dark2"}\NormalTok{)[}\FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{)])}
+
+\DocumentationTok{\#\# bat LISI}
+\NormalTok{dat.v }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"Raw"}\NormalTok{, }\StringTok{"logPAC"}\NormalTok{, }\StringTok{"Pearson Residual"}\NormalTok{)}
+\NormalTok{lisi.bat.ls.redu }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{()}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{length}\NormalTok{(lisi.bat.ls)) \{}
+    \ControlFlowTok{for}\NormalTok{ (j }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{length}\NormalTok{(lisi.bat.ls[[i]])) \{}
+\NormalTok{        lisi.bat.ls[[i]][[j]]}\SpecialCharTok{$}\NormalTok{Cell\_Type }\OtherTok{\textless{}{-}} \FunctionTok{names}\NormalTok{(lisi.bat.ls[[i]][j])}
+\NormalTok{        lisi.bat.ls[[i]][[j]]}\SpecialCharTok{$}\NormalTok{Data }\OtherTok{\textless{}{-}}\NormalTok{ dat.v[i]}
+\NormalTok{    \}}
+\NormalTok{    lisi.bat.ls.redu[[i]] }\OtherTok{\textless{}{-}} \FunctionTok{do.call}\NormalTok{(rbind, lisi.bat.ls[[i]])}
+\NormalTok{\}}
+
+\NormalTok{bat.lisi }\OtherTok{\textless{}{-}} \FunctionTok{do.call}\NormalTok{(rbind, lisi.bat.ls.redu)}
+\FunctionTok{colnames}\NormalTok{(bat.lisi)[}\DecValTok{1}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{"Bat\_LISI"}
+\NormalTok{bat.lisi}\SpecialCharTok{$}\NormalTok{Data }\OtherTok{\textless{}{-}} \FunctionTok{factor}\NormalTok{(bat.lisi}\SpecialCharTok{$}\NormalTok{Data, }\AttributeTok{levels =} \FunctionTok{c}\NormalTok{(}\StringTok{"Raw"}\NormalTok{, }\StringTok{"logPAC"}\NormalTok{,}
+    \StringTok{"Pearson Residual"}\NormalTok{))}
+\CommentTok{\# ordering by the size of the clusters}
+\NormalTok{bat.lisi}\SpecialCharTok{$}\NormalTok{Cell\_Type }\OtherTok{\textless{}{-}} \FunctionTok{factor}\NormalTok{(bat.lisi}\SpecialCharTok{$}\NormalTok{Cell\_Type, }\AttributeTok{levels =} \FunctionTok{data.frame}\NormalTok{(}\FunctionTok{table}\NormalTok{(meta}\SpecialCharTok{$}\NormalTok{cellType\_broad))[}\FunctionTok{order}\NormalTok{(}\FunctionTok{data.frame}\NormalTok{(}\FunctionTok{table}\NormalTok{(meta}\SpecialCharTok{$}\NormalTok{cellType\_broad))}\SpecialCharTok{$}\NormalTok{Freq,}
+    \AttributeTok{decreasing =}\NormalTok{ T), }\StringTok{"Var1"}\NormalTok{])}
+\NormalTok{p2 }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(bat.lisi, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Cell\_Type, }\AttributeTok{y =} \FunctionTok{log}\NormalTok{(Bat\_LISI),}
+    \AttributeTok{fill =}\NormalTok{ Data)) }\SpecialCharTok{+} \FunctionTok{ggtitle}\NormalTok{(}\StringTok{"Batch LISI {-} the distributions of cells"}\NormalTok{) }\SpecialCharTok{+}
+    \FunctionTok{labs}\NormalTok{(}\AttributeTok{x =} \StringTok{"Cell Type"}\NormalTok{, }\AttributeTok{subtitle =} \StringTok{"ordered from largest (left) to smallest (right)"}\NormalTok{) }\SpecialCharTok{+}
+    \FunctionTok{geom\_boxplot}\NormalTok{(}\AttributeTok{outlier.shape =} \ConstantTok{NA}\NormalTok{) }\SpecialCharTok{+} \FunctionTok{coord\_cartesian}\NormalTok{(}\AttributeTok{ylim =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}
+    \DecValTok{2}\NormalTok{)) }\SpecialCharTok{+} \FunctionTok{scale\_fill\_manual}\NormalTok{(}\AttributeTok{values =}\NormalTok{ adjDat\_col) }\SpecialCharTok{+} \FunctionTok{theme\_bw}\NormalTok{() }\SpecialCharTok{+}
+    \FunctionTok{theme}\NormalTok{(}\AttributeTok{axis.text.x =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{angle =} \DecValTok{60}\NormalTok{, }\AttributeTok{vjust =} \DecValTok{1}\NormalTok{, }\AttributeTok{hjust =} \DecValTok{1}\NormalTok{))}
+\FunctionTok{print}\NormalTok{(p2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{adjustwidth}{\fltoffset}{0mm}
+\includegraphics[width=1\linewidth,]{EXTruvIIInb_vignette_files/figure-latex/lisi_fig_bat-1} \end{adjustwidth}
+
+For comparison, the batch LISI scores are shown on the natural logarithm scale. High batch LISI scores are anticipated for cells derived from the corrected data from an effective normalisation, indicating a well-mixed representation of neighbouring cells from different batches. From the above figure, the distributions of the LISI scores from the corrected data (both logPAC and the Pearson residuals) are higher than those from the raw data (\(log(raw.count + 1)\)), demonstrating successful mitigation of unwanted variation (batch effect, in this case).
+
+\subsubsection{The UMAP plots}\label{the-umap-plots}
+
+We firstly form a list to convenient the plotting of several figure panels.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{plot.umap }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{(umap\_raw\_rna, umap\_raw\_adt, umap\_raw\_both,}
+\NormalTok{    umap\_logpac\_rna, umap\_logpac\_adt, umap\_logpac\_both, umap\_pr\_rna,}
+\NormalTok{    umap\_pr\_adt, umap\_pr\_both)}
+\FunctionTok{names}\NormalTok{(plot.umap) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FunctionTok{paste0}\NormalTok{(}\StringTok{"Raw"}\NormalTok{, }\FunctionTok{c}\NormalTok{(}\StringTok{"\_mRNA"}\NormalTok{, }\StringTok{"\_ADT"}\NormalTok{, }\StringTok{"\_both"}\NormalTok{)),}
+    \FunctionTok{paste0}\NormalTok{(}\StringTok{"logPAC"}\NormalTok{, }\FunctionTok{c}\NormalTok{(}\StringTok{"\_mRNA"}\NormalTok{, }\StringTok{"\_ADT"}\NormalTok{, }\StringTok{"\_both"}\NormalTok{)), }\FunctionTok{paste0}\NormalTok{(}\StringTok{"PearsonResidual"}\NormalTok{,}
+        \FunctionTok{c}\NormalTok{(}\StringTok{"\_mRNA"}\NormalTok{, }\StringTok{"\_ADT"}\NormalTok{, }\StringTok{"\_both"}\NormalTok{)))}
+\end{Highlighting}
+\end{Shaded}
+
+The figure panels below display \(log(raw+1)\), \(log(PAC+1)\) (logPAC), and Pearson residuals arranged in rows, with UMAP representations derived from mRNA features only, protein (ADT) features only, and both domains combined in the columns.
+
+We firstly colour the cells by the batch they came from.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mycolors }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FunctionTok{brewer.pal}\NormalTok{(}\AttributeTok{name =} \StringTok{"Paired"}\NormalTok{, }\AttributeTok{n =} \DecValTok{12}\NormalTok{), }\FunctionTok{brewer.pal}\NormalTok{(}\AttributeTok{name =} \StringTok{"Dark2"}\NormalTok{,}
+    \AttributeTok{n =} \DecValTok{8}\NormalTok{))}
+
+\CommentTok{\# metadata for all cells in the build{-}in dataset}
+\NormalTok{meta }\OtherTok{\textless{}{-}}\NormalTok{ triana\_data}\SpecialCharTok{$}\NormalTok{metadata}
+\DocumentationTok{\#\# batch}
+\NormalTok{p.ls }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{()}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{length}\NormalTok{(plot.umap)) \{}
+\NormalTok{    ord.meta }\OtherTok{\textless{}{-}}\NormalTok{ meta[}\FunctionTok{match}\NormalTok{(}\FunctionTok{rownames}\NormalTok{(plot.umap[[i]]), }\FunctionTok{rownames}\NormalTok{(meta)),}
+\NormalTok{        ]}
+\NormalTok{    df.graph }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(plot.umap[[i]], }\AttributeTok{Batch =}\NormalTok{ ord.meta}\SpecialCharTok{$}\NormalTok{sample\_batch)}
+
+    \FunctionTok{colnames}\NormalTok{(df.graph)[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{2}\NormalTok{] }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"UMAP1"}\NormalTok{, }\StringTok{"UMAP2"}\NormalTok{)}
+\NormalTok{    p.ls[[i]] }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(df.graph, }\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ UMAP1, }\AttributeTok{y =}\NormalTok{ UMAP2,}
+        \AttributeTok{color =}\NormalTok{ Batch)) }\SpecialCharTok{+} \FunctionTok{theme\_classic}\NormalTok{() }\SpecialCharTok{+} \FunctionTok{ggtitle}\NormalTok{(}\FunctionTok{names}\NormalTok{(plot.umap)[i]) }\SpecialCharTok{+}
+        \FunctionTok{guides}\NormalTok{(}\AttributeTok{colour =} \FunctionTok{guide\_legend}\NormalTok{(}\AttributeTok{override.aes =} \FunctionTok{list}\NormalTok{(}\AttributeTok{size =} \DecValTok{5}\NormalTok{))) }\SpecialCharTok{+}
+        \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{size =} \FloatTok{0.1}\NormalTok{) }\SpecialCharTok{+} \FunctionTok{theme}\NormalTok{(}\AttributeTok{plot.title =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{10}\NormalTok{,}
+        \AttributeTok{face =} \StringTok{"bold"}\NormalTok{), }\AttributeTok{legend.position =} \StringTok{"none"}\NormalTok{) }\SpecialCharTok{+} \FunctionTok{scale\_color\_manual}\NormalTok{(}\AttributeTok{values =}\NormalTok{ mycolors)}
+\NormalTok{\}}
+\NormalTok{p.leg }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(df.graph, }\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ UMAP1, }\AttributeTok{y =}\NormalTok{ UMAP2,}
+    \AttributeTok{color =}\NormalTok{ Batch)) }\SpecialCharTok{+} \FunctionTok{theme}\NormalTok{(}\AttributeTok{legend.text =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{14}\NormalTok{)) }\SpecialCharTok{+}
+    \FunctionTok{ggtitle}\NormalTok{(}\FunctionTok{names}\NormalTok{(plot.umap)[i]) }\SpecialCharTok{+} \FunctionTok{guides}\NormalTok{(}\AttributeTok{colour =} \FunctionTok{guide\_legend}\NormalTok{(}\AttributeTok{ncol =} \DecValTok{3}\NormalTok{,}
+    \AttributeTok{override.aes =} \FunctionTok{list}\NormalTok{(}\AttributeTok{size =} \DecValTok{5}\NormalTok{))) }\SpecialCharTok{+} \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{size =} \FloatTok{0.1}\NormalTok{) }\SpecialCharTok{+}
+    \FunctionTok{scale\_color\_manual}\NormalTok{(}\AttributeTok{values =}\NormalTok{ mycolors)}
+\NormalTok{legend }\OtherTok{\textless{}{-}}\NormalTok{ cowplot}\SpecialCharTok{::}\FunctionTok{get\_legend}\NormalTok{(p.leg)}
+\CommentTok{\#\textgreater{} Warning in get\_plot\_component(plot, "guide{-}box"): Multiple components found;}
+\CommentTok{\#\textgreater{} returning the first one. To return all, use \textasciigrave{}return\_all = TRUE\textasciigrave{}.}
+\NormalTok{p.ls[[i }\SpecialCharTok{+} \DecValTok{2}\NormalTok{]] }\OtherTok{\textless{}{-}}\NormalTok{ legend}
+
+\FunctionTok{grid.arrange}\NormalTok{(}\AttributeTok{grobs =}\NormalTok{ p.ls, }\AttributeTok{ncol =} \DecValTok{3}\NormalTok{, }\AttributeTok{top =} \StringTok{"The Triana dataset (coloured cells by Batch)"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{adjustwidth}{\fltoffset}{0mm}
+\includegraphics[width=1\linewidth,]{EXTruvIIInb_vignette_files/figure-latex/umap_visu2-1} \end{adjustwidth}
+
+For each cluster of cells, there is a slightly better mixture of cells from different batches in the middle and bottom rows of the panels, compared to the top panels, which represent the uncorrected data.
+
+Secondly, we coloured the cells by the cell type annotation from the data publisher.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mycolors }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FunctionTok{brewer.pal}\NormalTok{(}\AttributeTok{name =} \StringTok{"Paired"}\NormalTok{, }\AttributeTok{n =} \DecValTok{12}\NormalTok{), }\FunctionTok{brewer.pal}\NormalTok{(}\AttributeTok{name =} \StringTok{"Dark2"}\NormalTok{,}
+    \AttributeTok{n =} \DecValTok{8}\NormalTok{))}
+
+\CommentTok{\# metadata for all cells in the build{-}in dataset}
+\NormalTok{meta }\OtherTok{\textless{}{-}}\NormalTok{ triana\_data}\SpecialCharTok{$}\NormalTok{metadata}
+\DocumentationTok{\#\# biology}
+\NormalTok{p.ls }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{()}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{length}\NormalTok{(plot.umap)) \{}
+\NormalTok{    ord.meta }\OtherTok{\textless{}{-}}\NormalTok{ meta[}\FunctionTok{match}\NormalTok{(}\FunctionTok{rownames}\NormalTok{(plot.umap[[i]]), }\FunctionTok{rownames}\NormalTok{(meta)),}
+\NormalTok{        ]}
+\NormalTok{    df.graph }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(plot.umap[[i]], }\AttributeTok{Biology =}\NormalTok{ ord.meta}\SpecialCharTok{$}\NormalTok{cellType\_broad)}
+
+    \FunctionTok{colnames}\NormalTok{(df.graph)[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{2}\NormalTok{] }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"UMAP1"}\NormalTok{, }\StringTok{"UMAP2"}\NormalTok{)}
+\NormalTok{    p.ls[[i]] }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(df.graph, }\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ UMAP1, }\AttributeTok{y =}\NormalTok{ UMAP2,}
+        \AttributeTok{color =}\NormalTok{ Biology)) }\SpecialCharTok{+} \FunctionTok{theme\_classic}\NormalTok{() }\SpecialCharTok{+} \FunctionTok{ggtitle}\NormalTok{(}\FunctionTok{names}\NormalTok{(plot.umap)[i]) }\SpecialCharTok{+}
+        \FunctionTok{guides}\NormalTok{(}\AttributeTok{colour =} \FunctionTok{guide\_legend}\NormalTok{(}\AttributeTok{override.aes =} \FunctionTok{list}\NormalTok{(}\AttributeTok{size =} \DecValTok{5}\NormalTok{))) }\SpecialCharTok{+}
+        \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{size =} \FloatTok{0.1}\NormalTok{) }\SpecialCharTok{+} \FunctionTok{theme}\NormalTok{(}\AttributeTok{plot.title =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{10}\NormalTok{,}
+        \AttributeTok{face =} \StringTok{"bold"}\NormalTok{), }\AttributeTok{legend.position =} \StringTok{"none"}\NormalTok{) }\SpecialCharTok{+} \FunctionTok{scale\_color\_manual}\NormalTok{(}\AttributeTok{values =}\NormalTok{ mycolors)}
+\NormalTok{\}}
+\NormalTok{p.leg }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(df.graph, }\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ UMAP1, }\AttributeTok{y =}\NormalTok{ UMAP2,}
+    \AttributeTok{color =}\NormalTok{ Biology)) }\SpecialCharTok{+} \FunctionTok{theme}\NormalTok{(}\AttributeTok{legend.text =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{14}\NormalTok{)) }\SpecialCharTok{+}
+    \FunctionTok{ggtitle}\NormalTok{(}\FunctionTok{names}\NormalTok{(plot.umap)[i]) }\SpecialCharTok{+} \FunctionTok{guides}\NormalTok{(}\AttributeTok{colour =} \FunctionTok{guide\_legend}\NormalTok{(}\AttributeTok{ncol =} \DecValTok{3}\NormalTok{,}
+    \AttributeTok{override.aes =} \FunctionTok{list}\NormalTok{(}\AttributeTok{size =} \DecValTok{5}\NormalTok{))) }\SpecialCharTok{+} \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{size =} \FloatTok{0.1}\NormalTok{) }\SpecialCharTok{+}
+    \FunctionTok{scale\_color\_manual}\NormalTok{(}\AttributeTok{values =}\NormalTok{ mycolors)}
+\NormalTok{legend }\OtherTok{\textless{}{-}}\NormalTok{ cowplot}\SpecialCharTok{::}\FunctionTok{get\_legend}\NormalTok{(p.leg)}
+\CommentTok{\#\textgreater{} Warning in get\_plot\_component(plot, "guide{-}box"): Multiple components found;}
+\CommentTok{\#\textgreater{} returning the first one. To return all, use \textasciigrave{}return\_all = TRUE\textasciigrave{}.}
+\NormalTok{p.ls[[i }\SpecialCharTok{+} \DecValTok{2}\NormalTok{]] }\OtherTok{\textless{}{-}}\NormalTok{ legend}
+
+\FunctionTok{grid.arrange}\NormalTok{(}\AttributeTok{grobs =}\NormalTok{ p.ls, }\AttributeTok{ncol =} \DecValTok{3}\NormalTok{, }\AttributeTok{top =} \StringTok{"The Triana dataset (coloured cells by Cell Types)"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{adjustwidth}{\fltoffset}{0mm}
+\includegraphics[width=1\linewidth,]{EXTruvIIInb_vignette_files/figure-latex/umap_visu3-1} \end{adjustwidth}
+
+Overall, the biological structure is visually obvious in the UMAP representations using the raw counts (the first row of the panels), while the corrected data (the middle and bottom rows) retain this structure with slight refinement. It is particularly evident in the improved separation of Monocytes (purple cells in the figure) and Myelocytes (light yellow ones) in the middle and the bottom panels.
+
+\subsection{Differential Expression (DE) analysis}\label{differential-expression-de-analysis}
+
+In this subsection, we perform DE analysis to assess the corrected data at the feature-level.
+
+\subsubsection{Differentially expressed features of unwanted variation}\label{differentially-expressed-features-of-unwanted-variation}
+
+We investigate the features that are statistically significantly affected by batch factors. To prevent biological effects from influencing the assessment of the batch DE analysis, we stratified the cells by cell-types, and retained only those with more than 150 cells.
+For each feature, we performed the Kruskal-Wallis Rank Sum Test (K-W test) (cite), as this non-parametric method prevents the testing method in favour of any data having a similar characteristic that aligns with the assumptions of the statistical testing. The p-values for all features obtained from the K-W tests were adjusted by the Benjamini-Hochberg procedure (cite 1995) to control the false discovery rate.
+
+The negative controls are defined as the ``markers'' for assessing unwanted variation in the corrected data due to their characteristic of being affected by technical effects. Next, we transform the adjusted p-values of all features into ranks. Then, we calculate the mean of the ranks of the negative controls.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dat.ls }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{(}\AttributeTok{raw =} \FunctionTok{log}\NormalTok{(}\FunctionTok{cbind}\NormalTok{(rna\_raw, adt\_raw) }\SpecialCharTok{+} \DecValTok{1}\NormalTok{), }\AttributeTok{logPAC =} \FunctionTok{cbind}\NormalTok{(}\FunctionTok{t}\NormalTok{(rna\_logPAC),}
+    \FunctionTok{t}\NormalTok{(adt\_logPAC)), }\AttributeTok{PearsonRes =} \FunctionTok{cbind}\NormalTok{(}\FunctionTok{t}\NormalTok{(rna\_PearsonRes), }\FunctionTok{t}\NormalTok{(adt\_PearsonRes)))}
+\NormalTok{nc\_adjPVAL\_testing.ls }\OtherTok{=}\NormalTok{ nc\_MeanMarkerRank\_testing.ls }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{()}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\DecValTok{3}\NormalTok{) \{}
+\NormalTok{    meta }\OtherTok{\textless{}{-}}\NormalTok{ triana\_data}\SpecialCharTok{$}\NormalTok{metadata}
+\NormalTok{    dat.here }\OtherTok{\textless{}{-}}\NormalTok{ dat.ls[[i]]}
+
+\NormalTok{    ord.meta }\OtherTok{\textless{}{-}}\NormalTok{ meta[}\FunctionTok{match}\NormalTok{(}\FunctionTok{rownames}\NormalTok{(dat.here), }\FunctionTok{rownames}\NormalTok{(meta)),}
+\NormalTok{        ]}
+
+    \DocumentationTok{\#\# only calculate for big enough CTs}
+\NormalTok{    freq.tab }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\FunctionTok{table}\NormalTok{(ord.meta}\SpecialCharTok{$}\NormalTok{cellType\_broad))}
+\NormalTok{    big.ct }\OtherTok{\textless{}{-}} \FunctionTok{as.character}\NormalTok{(freq.tab}\SpecialCharTok{$}\NormalTok{Var1[}\FunctionTok{which}\NormalTok{(freq.tab}\SpecialCharTok{$}\NormalTok{Freq }\SpecialCharTok{\textgreater{}}
+        \DecValTok{150}\NormalTok{)])}
+
+\NormalTok{    extr.cell }\OtherTok{\textless{}{-}} \FunctionTok{which}\NormalTok{(ord.meta}\SpecialCharTok{$}\NormalTok{cellType\_broad }\SpecialCharTok{\%in\%}\NormalTok{ big.ct)}
+
+\NormalTok{    meta.nc }\OtherTok{\textless{}{-}}\NormalTok{ ord.meta[extr.cell, ]}
+\NormalTok{    dat.here.nc }\OtherTok{\textless{}{-}}\NormalTok{ dat.here[extr.cell, ]}
+    \DocumentationTok{\#\#}
+
+\NormalTok{    NC\_inner\_ADJpval }\OtherTok{=}\NormalTok{ NC\_inner\_MeanMarkerRank }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{()}
+    \ControlFlowTok{for}\NormalTok{ (ct }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{length}\NormalTok{(}\FunctionTok{unique}\NormalTok{(meta.nc}\SpecialCharTok{$}\NormalTok{cellType\_broad))) \{}
+\NormalTok{        meta.here }\OtherTok{\textless{}{-}}\NormalTok{ meta.nc[}\FunctionTok{which}\NormalTok{(meta.nc}\SpecialCharTok{$}\NormalTok{cellType\_broad }\SpecialCharTok{==}
+            \FunctionTok{unique}\NormalTok{(meta.nc}\SpecialCharTok{$}\NormalTok{cellType\_broad)[ct]), ]}
+\NormalTok{        dat.here.here }\OtherTok{\textless{}{-}}\NormalTok{ dat.here.nc[}\FunctionTok{which}\NormalTok{(meta.nc}\SpecialCharTok{$}\NormalTok{cellType\_broad }\SpecialCharTok{==}
+            \FunctionTok{unique}\NormalTok{(meta.nc}\SpecialCharTok{$}\NormalTok{cellType\_broad)[ct]), ]}
+
+\NormalTok{        dat.here.here.ls }\OtherTok{\textless{}{-}} \FunctionTok{lapply}\NormalTok{(}\FunctionTok{seq\_len}\NormalTok{(}\FunctionTok{ncol}\NormalTok{(dat.here.here)),}
+            \ControlFlowTok{function}\NormalTok{(i) dat.here.here[, i])}
+        \FunctionTok{names}\NormalTok{(dat.here.here.ls) }\OtherTok{\textless{}{-}} \FunctionTok{colnames}\NormalTok{(dat.here.here)}
+
+\NormalTok{        nc\_PVAL\_testing }\OtherTok{\textless{}{-}} \FunctionTok{mclapply}\NormalTok{(dat.here.here.ls, }\ControlFlowTok{function}\NormalTok{(z) \{}
+\NormalTok{            test }\OtherTok{\textless{}{-}} \FunctionTok{kruskal.test}\NormalTok{(z }\SpecialCharTok{\textasciitilde{}}\NormalTok{ meta.here}\SpecialCharTok{$}\NormalTok{sample\_batch)}
+\NormalTok{            orig.pval }\OtherTok{\textless{}{-}}\NormalTok{ test}\SpecialCharTok{$}\NormalTok{p.value}
+\NormalTok{            adj.pval }\OtherTok{\textless{}{-}} \FunctionTok{p.adjust}\NormalTok{(orig.pval, }\AttributeTok{method =} \StringTok{"BH"}\NormalTok{)}
+            \CommentTok{\# Benjamini \& Hochberg (1995) (\textquotesingle{}BH\textquotesingle{} or its}
+            \CommentTok{\# alias \textquotesingle{}fdr\textquotesingle{})}
+\NormalTok{            out.ls }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{(orig.pval, adj.pval)}
+            \FunctionTok{return}\NormalTok{(out.ls)}
+\NormalTok{        \}, }\AttributeTok{mc.cores =} \DecValTok{2}\DataTypeTok{L}\NormalTok{)}
+
+        \CommentTok{\# orig.pval.v \textless{}{-} sapply(nc\_PVAL\_testing, \textquotesingle{}[[\textquotesingle{}, 1)}
+\NormalTok{        adj.pval.v }\OtherTok{\textless{}{-}} \FunctionTok{sapply}\NormalTok{(nc\_PVAL\_testing, }\StringTok{"[["}\NormalTok{, }\DecValTok{2}\NormalTok{)}
+
+\NormalTok{        NC\_inner\_ADJpval[[ct]] }\OtherTok{\textless{}{-}}\NormalTok{ adj.pval.v}
+
+\NormalTok{        rank.adj.pvals }\OtherTok{\textless{}{-}} \FunctionTok{rank}\NormalTok{(adj.pval.v)}
+\NormalTok{        marker.rank }\OtherTok{\textless{}{-}}\NormalTok{ rank.adj.pvals[}\FunctionTok{match}\NormalTok{(}\FunctionTok{c}\NormalTok{(nc1, nc2, nc3),}
+            \FunctionTok{names}\NormalTok{(rank.adj.pvals))]}
+\NormalTok{        NC\_inner\_MeanMarkerRank[[ct]] }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(marker.rank)}
+\NormalTok{    \}}
+    \FunctionTok{names}\NormalTok{(NC\_inner\_ADJpval) }\OtherTok{=} \FunctionTok{names}\NormalTok{(NC\_inner\_MeanMarkerRank) }\OtherTok{\textless{}{-}} \FunctionTok{unique}\NormalTok{(meta.nc}\SpecialCharTok{$}\NormalTok{cellType\_broad)}
+
+\NormalTok{    nc\_adjPVAL\_testing.ls[[i]] }\OtherTok{\textless{}{-}}\NormalTok{ NC\_inner\_ADJpval}
+\NormalTok{    nc\_MeanMarkerRank\_testing.ls[[i]] }\OtherTok{\textless{}{-}}\NormalTok{ NC\_inner\_MeanMarkerRank}
+\NormalTok{\}}
+\FunctionTok{names}\NormalTok{(nc\_adjPVAL\_testing.ls) }\OtherTok{=} \FunctionTok{names}\NormalTok{(nc\_MeanMarkerRank\_testing.ls) }\OtherTok{\textless{}{-}} \FunctionTok{names}\NormalTok{(dat.ls)}
+\end{Highlighting}
+\end{Shaded}
+
+Since we expect that the unwanted variation has been properly removed from the negative controls, a successful corrected data is anticipated to result in a higher mean of the ranks for these markers, indicating larger adjusted p-values of the negative controls.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{adjDat\_col }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"\#999999"}\NormalTok{, }\FunctionTok{brewer.pal}\NormalTok{(}\DecValTok{3}\NormalTok{, }\StringTok{"Dark2"}\NormalTok{)[}\FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{)])}
+
+\NormalTok{df.graph }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{MeanMarkerRank =} \FunctionTok{unlist}\NormalTok{(}\FunctionTok{do.call}\NormalTok{(}\StringTok{"c"}\NormalTok{, nc\_MeanMarkerRank\_testing.ls)),}
+    \AttributeTok{Data =} \FunctionTok{sub}\NormalTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{..*"}\NormalTok{, }\StringTok{""}\NormalTok{, }\FunctionTok{names}\NormalTok{(}\FunctionTok{unlist}\NormalTok{(}\FunctionTok{do.call}\NormalTok{(}\StringTok{"c"}\NormalTok{, nc\_MeanMarkerRank\_testing.ls)))),}
+    \AttributeTok{Cell\_Type =} \FunctionTok{sub}\NormalTok{(}\StringTok{"\^{}[\^{}.]+."}\NormalTok{, }\StringTok{""}\NormalTok{, }\FunctionTok{names}\NormalTok{(}\FunctionTok{unlist}\NormalTok{(}\FunctionTok{do.call}\NormalTok{(}\StringTok{"c"}\NormalTok{,}
+\NormalTok{        nc\_MeanMarkerRank\_testing.ls)))))}
+\NormalTok{df.graph}\SpecialCharTok{$}\NormalTok{Data[df.graph}\SpecialCharTok{$}\NormalTok{Data }\SpecialCharTok{==} \StringTok{"raw"}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{"Raw"}
+\NormalTok{df.graph}\SpecialCharTok{$}\NormalTok{Data[df.graph}\SpecialCharTok{$}\NormalTok{Data }\SpecialCharTok{==} \StringTok{"PearsonRes"}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{"Pearson Residual"}
+
+\NormalTok{df.graph}\SpecialCharTok{$}\NormalTok{Data }\OtherTok{\textless{}{-}} \FunctionTok{factor}\NormalTok{(df.graph}\SpecialCharTok{$}\NormalTok{Data, }\AttributeTok{levels =} \FunctionTok{c}\NormalTok{(}\StringTok{"Raw"}\NormalTok{, }\StringTok{"logPAC"}\NormalTok{,}
+    \StringTok{"Pearson Residual"}\NormalTok{))}
+\NormalTok{orderedCT }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\FunctionTok{table}\NormalTok{(meta}\SpecialCharTok{$}\NormalTok{cellType\_broad))[}\FunctionTok{order}\NormalTok{(}\FunctionTok{data.frame}\NormalTok{(}\FunctionTok{table}\NormalTok{(meta}\SpecialCharTok{$}\NormalTok{cellType\_broad))}\SpecialCharTok{$}\NormalTok{Freq,}
+    \AttributeTok{decreasing =}\NormalTok{ T), }\StringTok{"Var1"}\NormalTok{]}
+\NormalTok{df.graph}\SpecialCharTok{$}\NormalTok{Cell\_Type }\OtherTok{\textless{}{-}} \FunctionTok{factor}\NormalTok{(df.graph}\SpecialCharTok{$}\NormalTok{Cell\_Type, }\AttributeTok{levels =}\NormalTok{ orderedCT)}
+
+\NormalTok{p }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(df.graph, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Cell\_Type, }\AttributeTok{y =}\NormalTok{ MeanMarkerRank,}
+    \AttributeTok{fill =}\NormalTok{ Data)) }\SpecialCharTok{+} \FunctionTok{geom\_col}\NormalTok{(}\AttributeTok{position =} \StringTok{"dodge"}\NormalTok{) }\SpecialCharTok{+} \FunctionTok{ggtitle}\NormalTok{(}\StringTok{"Mean of the ranks for the negative controls"}\NormalTok{) }\SpecialCharTok{+}
+    \FunctionTok{scale\_fill\_manual}\NormalTok{(}\AttributeTok{values =}\NormalTok{ adjDat\_col) }\SpecialCharTok{+} \FunctionTok{theme\_bw}\NormalTok{() }\SpecialCharTok{+} \FunctionTok{theme}\NormalTok{(}\AttributeTok{axis.text.x =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{angle =} \DecValTok{60}\NormalTok{,}
+    \AttributeTok{vjust =} \DecValTok{1}\NormalTok{, }\AttributeTok{hjust =} \DecValTok{1}\NormalTok{))}
+\FunctionTok{print}\NormalTok{(p)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{adjustwidth}{\fltoffset}{0mm}
+\includegraphics[width=1\linewidth,]{EXTruvIIInb_vignette_files/figure-latex/de_bat_fig-1} \end{adjustwidth}
+
+The barplot shows higher means of the ranks for negative controls from the corrected data, suggesting that they return larger adjusted p-values compared to the raw data.
+
+\subsubsection{Differentially expressed biological features}\label{differentially-expressed-biological-features}
+
+We examine the features that contain useful biological information. Here, the top 3 cell types with the highest cell count are used for the assessment (\texttt{Mature and memory B cells}, \texttt{CD8+ T cells}, and \texttt{NK cells}). In the DE analysis for this cell-type, cells are relabelled as \texttt{The cell type of interest} or \texttt{others}.
+To avoid the leftover unwanted variation from affecting the assessment of the biological DE analysis, we conduct the analysis batch by batch and combine p-values from different batches In each batch, we perform the Wilcoxon Rank Sum Test (two-tailed) (cite) for each feature, and then combine the unadjusted p-values across batches using the Fisher method (cite). The combined p-values are then adjusted by the Benjamini-Hochberg procedure to control the false discovery rate.
+
+The markers for cell-type identification are defined as positive controls because they are useful for assessing biological variation in the corrected data. To incorporate the knowledge of positive controls for further assessment, we take the adjusted p-values and transform them into ranks. The summary of the ranks for the positive controls is obtained by calculating the mean of the ranks across the markers.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dat.ls }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{(}\AttributeTok{raw =} \FunctionTok{log}\NormalTok{(}\FunctionTok{cbind}\NormalTok{(rna\_raw, adt\_raw) }\SpecialCharTok{+} \DecValTok{1}\NormalTok{), }\AttributeTok{logPAC =} \FunctionTok{cbind}\NormalTok{(}\FunctionTok{t}\NormalTok{(rna\_logPAC),}
+    \FunctionTok{t}\NormalTok{(adt\_logPAC)), }\AttributeTok{PearsonRes =} \FunctionTok{cbind}\NormalTok{(}\FunctionTok{t}\NormalTok{(rna\_PearsonRes), }\FunctionTok{t}\NormalTok{(adt\_PearsonRes)))}
+
+\NormalTok{markers }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{(}\AttributeTok{B =} \FunctionTok{c}\NormalTok{(}\StringTok{"mod1\_CD19"}\NormalTok{, }\StringTok{"mod1\_CD20"}\NormalTok{, }\StringTok{"mod1\_CD27"}\NormalTok{,}
+    \StringTok{"mod1\_CD38"}\NormalTok{, }\StringTok{"mod1\_IgD"}\NormalTok{, }\StringTok{"mod1\_IgM"}\NormalTok{, }\StringTok{"mod1\_IgG"}\NormalTok{, }\StringTok{"mod1\_IgA"}\NormalTok{,}
+    \StringTok{"mod1\_IgE"}\NormalTok{, }\StringTok{"mod1\_CD24"}\NormalTok{, }\StringTok{"mod1\_CD138"}\NormalTok{, }\StringTok{"mod1\_Syndecan{-}1"}\NormalTok{,}
+    \StringTok{"mod1\_IgG1"}\NormalTok{, }\StringTok{"mod1\_IgG2a"}\NormalTok{, }\StringTok{"mod1\_CD138"}\NormalTok{, }\StringTok{"mod2\_CD19"}\NormalTok{, }\StringTok{"mod2\_CD20"}\NormalTok{,}
+    \StringTok{"mod2\_CD27"}\NormalTok{, }\StringTok{"mod2\_CD38"}\NormalTok{, }\StringTok{"mod2\_IgD"}\NormalTok{, }\StringTok{"mod2\_IgM"}\NormalTok{, }\StringTok{"mod2\_IgG"}\NormalTok{,}
+    \StringTok{"mod2\_IgA"}\NormalTok{, }\StringTok{"mod2\_IgE"}\NormalTok{, }\StringTok{"mod2\_CD24"}\NormalTok{, }\StringTok{"mod2\_CD138"}\NormalTok{, }\StringTok{"mod2\_Syndecan{-}1"}\NormalTok{,}
+    \StringTok{"mod2\_IgG1"}\NormalTok{, }\StringTok{"mod2\_IgG2a"}\NormalTok{, }\StringTok{"mod2\_CD138"}\NormalTok{), }\AttributeTok{CD8T =} \FunctionTok{c}\NormalTok{(}\StringTok{"mod1\_CD3"}\NormalTok{,}
+    \StringTok{"mod1\_CD8"}\NormalTok{, }\StringTok{"mod1\_CD45RO"}\NormalTok{, }\StringTok{"mod1\_CD45RA"}\NormalTok{, }\StringTok{"mod1\_CCR7"}\NormalTok{, }\StringTok{"mod1\_CD62L"}\NormalTok{,}
+    \StringTok{"mod1\_L{-}selectin"}\NormalTok{, }\StringTok{"mod1\_Granzyme B"}\NormalTok{, }\StringTok{"mod1\_Perforin"}\NormalTok{, }\StringTok{"mod1\_CD45RO{-}Bio"}\NormalTok{,}
+    \StringTok{"mod1\_CD45RA{-}Bio"}\NormalTok{, }\StringTok{"mod1\_CD62L"}\NormalTok{, }\StringTok{"mod2\_CD3"}\NormalTok{, }\StringTok{"mod2\_CD8"}\NormalTok{,}
+    \StringTok{"mod2\_CD45RO"}\NormalTok{, }\StringTok{"mod2\_CD45RA"}\NormalTok{, }\StringTok{"mod2\_CCR7"}\NormalTok{, }\StringTok{"mod2\_CD62L"}\NormalTok{,}
+    \StringTok{"mod2\_L{-}selectin"}\NormalTok{, }\StringTok{"mod2\_Granzyme B"}\NormalTok{, }\StringTok{"mod2\_Perforin"}\NormalTok{, }\StringTok{"mod2\_CD45RO{-}Bio"}\NormalTok{,}
+    \StringTok{"mod2\_CD45RA{-}Bio"}\NormalTok{, }\StringTok{"mod2\_CD62L"}\NormalTok{), }\AttributeTok{NK =} \FunctionTok{c}\NormalTok{(}\StringTok{"mod1\_CD56"}\NormalTok{, }\StringTok{"mod1\_NCAM"}\NormalTok{,}
+    \StringTok{"mod1\_CD16"}\NormalTok{, }\StringTok{"mod1\_CD3"}\NormalTok{, }\StringTok{"mod1\_NKp46"}\NormalTok{, }\StringTok{"mod1\_NCR1"}\NormalTok{, }\StringTok{"mod1\_NKG2D"}\NormalTok{,}
+    \StringTok{"mod1\_KLRK1"}\NormalTok{, }\StringTok{"mod1\_CD94"}\NormalTok{, }\StringTok{"mod1\_KLRD1"}\NormalTok{, }\StringTok{"mod1\_CD57"}\NormalTok{, }\StringTok{"mod2\_CD56"}\NormalTok{,}
+    \StringTok{"mod2\_NCAM"}\NormalTok{, }\StringTok{"mod2\_CD16"}\NormalTok{, }\StringTok{"mod2\_CD3"}\NormalTok{, }\StringTok{"mod2\_NKp46"}\NormalTok{, }\StringTok{"mod2\_NCR1"}\NormalTok{,}
+    \StringTok{"mod2\_NKG2D"}\NormalTok{, }\StringTok{"mod2\_KLRK1"}\NormalTok{, }\StringTok{"mod2\_CD94"}\NormalTok{, }\StringTok{"mod2\_KLRD1"}\NormalTok{, }\StringTok{"mod2\_CD57"}\NormalTok{))}
+
+\NormalTok{pc\_combineAdjPVAL.ls }\OtherTok{=}\NormalTok{ pc\_MeanMarkerRank\_testing.ls }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{()}
+\NormalTok{cts }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"Mature and memory B cells"}\NormalTok{, }\StringTok{"CD8+ T cells"}\NormalTok{, }\StringTok{"NK cells"}\NormalTok{)}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\DecValTok{3}\NormalTok{) \{}
+\NormalTok{    meta }\OtherTok{\textless{}{-}}\NormalTok{ triana\_data}\SpecialCharTok{$}\NormalTok{metadata}
+\NormalTok{    dat.here }\OtherTok{\textless{}{-}}\NormalTok{ dat.ls[[i]]}
+
+\NormalTok{    ord.meta }\OtherTok{\textless{}{-}}\NormalTok{ meta[}\FunctionTok{match}\NormalTok{(}\FunctionTok{rownames}\NormalTok{(dat.here), }\FunctionTok{rownames}\NormalTok{(meta)),}
+\NormalTok{        ]}
+
+\NormalTok{    PC\_inner\_combineAdjPVAL }\OtherTok{=}\NormalTok{ PC\_inner\_MeanMarkerRank }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{()}
+    \ControlFlowTok{for}\NormalTok{ (ct }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\DecValTok{3}\NormalTok{) \{}
+\NormalTok{        cluster.nam }\OtherTok{\textless{}{-}}\NormalTok{ cts[ct]}
+
+        \DocumentationTok{\#\# analyse batch by batch and integrate}
+\NormalTok{        bat.pval.mt }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\ConstantTok{NA}\NormalTok{, }\AttributeTok{nrow =} \FunctionTok{length}\NormalTok{(}\FunctionTok{unique}\NormalTok{(meta}\SpecialCharTok{$}\NormalTok{sample\_batch)),}
+            \AttributeTok{ncol =} \FunctionTok{ncol}\NormalTok{(dat.here))}
+        \FunctionTok{colnames}\NormalTok{(bat.pval.mt) }\OtherTok{\textless{}{-}} \FunctionTok{colnames}\NormalTok{(dat.here)}
+\NormalTok{        pc\_inbat\_ls }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{()}
+        \ControlFlowTok{for}\NormalTok{ (b }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{length}\NormalTok{(}\FunctionTok{unique}\NormalTok{(meta}\SpecialCharTok{$}\NormalTok{sample\_batch))) \{}
+
+\NormalTok{            dat.here.bat }\OtherTok{\textless{}{-}}\NormalTok{ dat.here[}\FunctionTok{which}\NormalTok{(meta}\SpecialCharTok{$}\NormalTok{sample\_batch }\SpecialCharTok{==}
+                \FunctionTok{unique}\NormalTok{(meta}\SpecialCharTok{$}\NormalTok{sample\_batch)[b]), ]}
+\NormalTok{            meta.here.bat }\OtherTok{\textless{}{-}}\NormalTok{ meta[}\FunctionTok{which}\NormalTok{(meta}\SpecialCharTok{$}\NormalTok{sample\_batch }\SpecialCharTok{==}
+                \FunctionTok{unique}\NormalTok{(meta}\SpecialCharTok{$}\NormalTok{sample\_batch)[b]), ]}
+            \CommentTok{\# within each batch do}
+\NormalTok{            \{}
+\NormalTok{                extr }\OtherTok{\textless{}{-}} \FunctionTok{which}\NormalTok{(meta.here.bat}\SpecialCharTok{$}\NormalTok{cellType\_broad }\SpecialCharTok{==}
+\NormalTok{                  cluster.nam)}
+
+\NormalTok{                dat.here.bat.ls }\OtherTok{\textless{}{-}} \FunctionTok{lapply}\NormalTok{(}\FunctionTok{seq\_len}\NormalTok{(}\FunctionTok{ncol}\NormalTok{(dat.here.bat)),}
+                  \ControlFlowTok{function}\NormalTok{(i) dat.here.bat[, i])}
+                \FunctionTok{names}\NormalTok{(dat.here.bat.ls) }\OtherTok{\textless{}{-}} \FunctionTok{colnames}\NormalTok{(dat.here.bat)}
+
+\NormalTok{                pc\_PVAL\_testing }\OtherTok{\textless{}{-}} \FunctionTok{mclapply}\NormalTok{(dat.here.bat.ls,}
+                  \ControlFlowTok{function}\NormalTok{(z) \{}
+\NormalTok{                    test }\OtherTok{\textless{}{-}} \FunctionTok{wilcox.test}\NormalTok{(}\AttributeTok{x =}\NormalTok{ z[extr], }\AttributeTok{y =}\NormalTok{ z[}\SpecialCharTok{{-}}\NormalTok{extr],}
+                      \AttributeTok{alternative =} \StringTok{"two.sided"}\NormalTok{)}
+\NormalTok{                    orig.pval }\OtherTok{\textless{}{-}}\NormalTok{ test}\SpecialCharTok{$}\NormalTok{p.value}
+                    \CommentTok{\# adj.pval \textless{}{-} p.adjust(orig.pval,}
+                    \CommentTok{\# method = \textquotesingle{}BH\textquotesingle{}) Benjamini \& Hochberg}
+                    \CommentTok{\# (1995) (\textquotesingle{}BH\textquotesingle{} or its alias \textquotesingle{}fdr\textquotesingle{})}
+\NormalTok{                    out.ls }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{(orig.pval)}
+                    \FunctionTok{return}\NormalTok{(out.ls)}
+\NormalTok{                  \}, }\AttributeTok{mc.cores =} \DecValTok{2}\DataTypeTok{L}\NormalTok{)}
+
+\NormalTok{                orig.pval.v }\OtherTok{\textless{}{-}} \FunctionTok{sapply}\NormalTok{(pc\_PVAL\_testing, }\StringTok{"[["}\NormalTok{,}
+                  \DecValTok{1}\NormalTok{)}
+
+\NormalTok{                pc\_inbat\_ls[[b]] }\OtherTok{\textless{}{-}}\NormalTok{ orig.pval.v}
+\NormalTok{                bat.pval.mt[b, ] }\OtherTok{\textless{}{-}}\NormalTok{ orig.pval.v  }\CommentTok{\#for later combination use}
+
+                \CommentTok{\# https://www.biostars.org/p/338286/}
+                \CommentTok{\# combine (using Fisher\textquotesingle{}s method) then}
+                \CommentTok{\# adjust}
+\NormalTok{            \}}
+\NormalTok{        \}}
+        \FunctionTok{names}\NormalTok{(pc\_inbat\_ls) }\OtherTok{\textless{}{-}} \FunctionTok{unique}\NormalTok{(meta}\SpecialCharTok{$}\NormalTok{sample\_batch)}
+
+\NormalTok{        bat.pval.mt.ls }\OtherTok{\textless{}{-}} \FunctionTok{lapply}\NormalTok{(}\FunctionTok{seq\_len}\NormalTok{(}\FunctionTok{ncol}\NormalTok{(bat.pval.mt)),}
+            \ControlFlowTok{function}\NormalTok{(i) bat.pval.mt[, i])}
+        \FunctionTok{names}\NormalTok{(bat.pval.mt.ls) }\OtherTok{\textless{}{-}} \FunctionTok{colnames}\NormalTok{(bat.pval.mt)}
+
+\NormalTok{        combinePVAL }\OtherTok{\textless{}{-}} \FunctionTok{mclapply}\NormalTok{(bat.pval.mt.ls, }\ControlFlowTok{function}\NormalTok{(x) \{}
+            \CommentTok{\# x \textless{}{-} bat.pval.mt[,2]}
+\NormalTok{            pval.ls }\OtherTok{\textless{}{-}} \FunctionTok{as.list}\NormalTok{(x)}
+\NormalTok{            result }\OtherTok{\textless{}{-}}\NormalTok{ metapod}\SpecialCharTok{::}\FunctionTok{combineParallelPValues}\NormalTok{(pval.ls,}
+                \AttributeTok{method =} \StringTok{"fisher"}\NormalTok{)}
+\NormalTok{            comb.orig.pval }\OtherTok{\textless{}{-}}\NormalTok{ result}\SpecialCharTok{$}\NormalTok{p.value}
+\NormalTok{            comb.adj.pval }\OtherTok{\textless{}{-}} \FunctionTok{p.adjust}\NormalTok{(comb.orig.pval, }\AttributeTok{method =} \StringTok{"BH"}\NormalTok{)}
+\NormalTok{            out.ls }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{(comb.orig.pval, comb.adj.pval)}
+            \FunctionTok{return}\NormalTok{(out.ls)}
+\NormalTok{        \}, }\AttributeTok{mc.cores =} \DecValTok{2}\DataTypeTok{L}\NormalTok{)}
+
+\NormalTok{        adj.pval.v }\OtherTok{\textless{}{-}} \FunctionTok{sapply}\NormalTok{(combinePVAL, }\StringTok{"[["}\NormalTok{, }\DecValTok{2}\NormalTok{)}
+
+\NormalTok{        PC\_inner\_combineAdjPVAL[[ct]] }\OtherTok{\textless{}{-}}\NormalTok{ adj.pval.v}
+
+\NormalTok{        rank.adj.pvals }\OtherTok{\textless{}{-}} \FunctionTok{rank}\NormalTok{(adj.pval.v)}
+        \CommentTok{\# take the intersection for matching}
+\NormalTok{        (intersect\_marker }\OtherTok{\textless{}{-}} \FunctionTok{intersect}\NormalTok{(markers[[ct]], }\FunctionTok{names}\NormalTok{(rank.adj.pvals)))}
+\NormalTok{        marker.rank }\OtherTok{\textless{}{-}}\NormalTok{ rank.adj.pvals[}\FunctionTok{match}\NormalTok{(intersect\_marker,}
+            \FunctionTok{names}\NormalTok{(rank.adj.pvals))]}
+\NormalTok{        PC\_inner\_MeanMarkerRank[[ct]] }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(marker.rank)}
+\NormalTok{    \}}
+
+    \FunctionTok{names}\NormalTok{(PC\_inner\_combineAdjPVAL) }\OtherTok{=} \FunctionTok{names}\NormalTok{(PC\_inner\_MeanMarkerRank) }\OtherTok{\textless{}{-}}\NormalTok{ cts}
+
+\NormalTok{    pc\_combineAdjPVAL.ls[[i]] }\OtherTok{\textless{}{-}}\NormalTok{ PC\_inner\_combineAdjPVAL}
+\NormalTok{    pc\_MeanMarkerRank\_testing.ls[[i]] }\OtherTok{\textless{}{-}}\NormalTok{ PC\_inner\_MeanMarkerRank}
+\NormalTok{\}}
+\FunctionTok{names}\NormalTok{(pc\_combineAdjPVAL.ls) }\OtherTok{=} \FunctionTok{names}\NormalTok{(pc\_MeanMarkerRank\_testing.ls) }\OtherTok{\textless{}{-}} \FunctionTok{names}\NormalTok{(dat.ls)}
+\end{Highlighting}
+\end{Shaded}
+
+Effectively normalised data is expected to return smaller mean of the marker ranks because they reflect smaller p-values of the positive controls from the normalisation.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{adjDat\_col }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"\#999999"}\NormalTok{, }\FunctionTok{brewer.pal}\NormalTok{(}\DecValTok{3}\NormalTok{, }\StringTok{"Dark2"}\NormalTok{)[}\FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{)])}
+
+\NormalTok{df.graph }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{MeanMarkerRank =} \FunctionTok{unlist}\NormalTok{(}\FunctionTok{do.call}\NormalTok{(}\StringTok{"c"}\NormalTok{, pc\_MeanMarkerRank\_testing.ls)),}
+    \AttributeTok{Data =} \FunctionTok{sub}\NormalTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{..*"}\NormalTok{, }\StringTok{""}\NormalTok{, }\FunctionTok{names}\NormalTok{(}\FunctionTok{unlist}\NormalTok{(}\FunctionTok{do.call}\NormalTok{(}\StringTok{"c"}\NormalTok{, pc\_MeanMarkerRank\_testing.ls)))),}
+    \AttributeTok{Cell\_Type =} \FunctionTok{sub}\NormalTok{(}\StringTok{"\^{}[\^{}.]+."}\NormalTok{, }\StringTok{""}\NormalTok{, }\FunctionTok{names}\NormalTok{(}\FunctionTok{unlist}\NormalTok{(}\FunctionTok{do.call}\NormalTok{(}\StringTok{"c"}\NormalTok{,}
+\NormalTok{        pc\_MeanMarkerRank\_testing.ls)))))}
+\NormalTok{df.graph}\SpecialCharTok{$}\NormalTok{Data[df.graph}\SpecialCharTok{$}\NormalTok{Data }\SpecialCharTok{==} \StringTok{"raw"}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{"Raw"}
+\NormalTok{df.graph}\SpecialCharTok{$}\NormalTok{Data[df.graph}\SpecialCharTok{$}\NormalTok{Data }\SpecialCharTok{==} \StringTok{"PearsonRes"}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{"Pearson Residual"}
+
+\NormalTok{df.graph}\SpecialCharTok{$}\NormalTok{Data }\OtherTok{\textless{}{-}} \FunctionTok{factor}\NormalTok{(df.graph}\SpecialCharTok{$}\NormalTok{Data, }\AttributeTok{levels =} \FunctionTok{c}\NormalTok{(}\StringTok{"Raw"}\NormalTok{, }\StringTok{"logPAC"}\NormalTok{,}
+    \StringTok{"Pearson Residual"}\NormalTok{))}
+\NormalTok{df.graph}\SpecialCharTok{$}\NormalTok{Cell\_Type }\OtherTok{\textless{}{-}} \FunctionTok{factor}\NormalTok{(df.graph}\SpecialCharTok{$}\NormalTok{Cell\_Type, }\AttributeTok{levels =}\NormalTok{ cts)}
+
+\NormalTok{p }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(df.graph, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Cell\_Type, }\AttributeTok{y =}\NormalTok{ MeanMarkerRank,}
+    \AttributeTok{fill =}\NormalTok{ Data)) }\SpecialCharTok{+} \FunctionTok{geom\_col}\NormalTok{(}\AttributeTok{position =} \StringTok{"dodge"}\NormalTok{) }\SpecialCharTok{+} \FunctionTok{ggtitle}\NormalTok{(}\StringTok{"Mean of the ranks for the positive controls"}\NormalTok{) }\SpecialCharTok{+}
+    \FunctionTok{scale\_fill\_manual}\NormalTok{(}\AttributeTok{values =}\NormalTok{ adjDat\_col) }\SpecialCharTok{+} \FunctionTok{theme\_bw}\NormalTok{() }\SpecialCharTok{+} \FunctionTok{theme}\NormalTok{(}\AttributeTok{axis.text.x =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{angle =} \DecValTok{60}\NormalTok{,}
+    \AttributeTok{vjust =} \DecValTok{1}\NormalTok{, }\AttributeTok{hjust =} \DecValTok{1}\NormalTok{))}
+\FunctionTok{print}\NormalTok{(p)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{adjustwidth}{\fltoffset}{0mm}
+\includegraphics[width=1\linewidth,]{EXTruvIIInb_vignette_files/figure-latex/de_bio_fig-1} \end{adjustwidth}
+
+The barplot shows lower means of the ranks for positive controls of \texttt{Mature and memory B cells} and \texttt{CD8+ T cells} from the corrected data, suggesting that they return smaller adjusted p-values compared to the raw data. This indicates that biological signals can be better revealed after data normalisation. While the signal in the markers for identifying \texttt{NK cells} do not get improved after normalisation, the difference in \texttt{MeanMarkerRank} value between \texttt{Data} is less pronounced.
+
+\paragraph{Marker expressions on UMAP representations}\label{marker-expressions-on-umap-representations}
+
+Based on the UMAP representation derived from logPAC data, we observe that the cell types are distinctly clustered.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{meta }\OtherTok{\textless{}{-}}\NormalTok{ triana\_data}\SpecialCharTok{$}\NormalTok{metadata}
+\NormalTok{mycolors }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FunctionTok{brewer.pal}\NormalTok{(}\AttributeTok{name =} \StringTok{"Paired"}\NormalTok{, }\AttributeTok{n =} \DecValTok{12}\NormalTok{), }\FunctionTok{brewer.pal}\NormalTok{(}\AttributeTok{name =} \StringTok{"Dark2"}\NormalTok{,}
+    \AttributeTok{n =} \DecValTok{8}\NormalTok{))}
+
+\NormalTok{ord.meta }\OtherTok{\textless{}{-}}\NormalTok{ meta[}\FunctionTok{match}\NormalTok{(}\FunctionTok{rownames}\NormalTok{(plot.umap[[i]]), }\FunctionTok{rownames}\NormalTok{(meta)),}
+\NormalTok{    ]}
+\NormalTok{df.graph }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(umap\_logpac\_both, }\AttributeTok{Biology =}\NormalTok{ ord.meta}\SpecialCharTok{$}\NormalTok{cellType\_broad)}
+
+\FunctionTok{colnames}\NormalTok{(df.graph)[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{2}\NormalTok{] }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"UMAP1"}\NormalTok{, }\StringTok{"UMAP2"}\NormalTok{)}
+\NormalTok{p }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(df.graph, }\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ UMAP1, }\AttributeTok{y =}\NormalTok{ UMAP2, }\AttributeTok{color =}\NormalTok{ Biology)) }\SpecialCharTok{+}
+    \FunctionTok{theme\_classic}\NormalTok{() }\SpecialCharTok{+} \FunctionTok{ggtitle}\NormalTok{(}\StringTok{"UMAP derived from logPAC data (mRNA + ADT)"}\NormalTok{) }\SpecialCharTok{+}
+    \FunctionTok{guides}\NormalTok{(}\AttributeTok{colour =} \FunctionTok{guide\_legend}\NormalTok{(}\AttributeTok{override.aes =} \FunctionTok{list}\NormalTok{(}\AttributeTok{size =} \DecValTok{5}\NormalTok{))) }\SpecialCharTok{+}
+    \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{size =} \FloatTok{0.1}\NormalTok{) }\SpecialCharTok{+} \FunctionTok{theme}\NormalTok{(}\AttributeTok{plot.title =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{10}\NormalTok{,}
+    \AttributeTok{face =} \StringTok{"bold"}\NormalTok{), }\AttributeTok{legend.position =} \StringTok{"right"}\NormalTok{) }\SpecialCharTok{+} \FunctionTok{scale\_color\_manual}\NormalTok{(}\AttributeTok{values =}\NormalTok{ mycolors)}
+\FunctionTok{print}\NormalTok{(p)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{adjustwidth}{\fltoffset}{0mm}
+\includegraphics[width=1\linewidth,]{EXTruvIIInb_vignette_files/figure-latex/umap_2logpac_bio-1} \end{adjustwidth}
+
+Then, we focus on \texttt{Mature and memory B cells}, and examine the expression levels of their markers in both mRNA and ADT domains. Specifically, we analyse the expressions of CD19 (a pan-B cell marker present on all B cells), CD24 (expressed on naïve B cells and some memory B cells), and CD27 (a marker of memory B cells).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dat }\OtherTok{\textless{}{-}} \FunctionTok{cbind}\NormalTok{(}\FunctionTok{t}\NormalTok{(rna\_logPAC), }\FunctionTok{t}\NormalTok{(adt\_logPAC))}
+
+\NormalTok{markers }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"mod1\_CD19"}\NormalTok{, }\StringTok{"mod1\_CD24"}\NormalTok{, }\StringTok{"mod1\_CD27"}\NormalTok{, }\CommentTok{\#mRNA domain}
+             \StringTok{"mod2\_CD19"}\NormalTok{, }\StringTok{"mod2\_CD24"}\NormalTok{, }\StringTok{"mod2\_CD27"}\NormalTok{) }\CommentTok{\#protein domain}
+\NormalTok{markers.title }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"mRNA\_CD19"}\NormalTok{, }\StringTok{"mRNA\_CD24"}\NormalTok{, }\StringTok{"mRNA\_CD27"}\NormalTok{, }
+                   \StringTok{"ADT\_CD19"}\NormalTok{, }\StringTok{"ADT\_CD24"}\NormalTok{, }\StringTok{"ADT\_CD27"}\NormalTok{) }
+\NormalTok{p.ls }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{()}
+\ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{length}\NormalTok{(markers))\{}
+\NormalTok{  df.graph }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(umap\_logpac\_both, dat[,}\FunctionTok{which}\NormalTok{(}\FunctionTok{colnames}\NormalTok{(dat) }\SpecialCharTok{==}\NormalTok{ markers[i])])}
+  \FunctionTok{colnames}\NormalTok{(df.graph) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"UMAP1"}\NormalTok{, }\StringTok{"UMAP2"}\NormalTok{, markers[i])}
+  
+\NormalTok{  p.ls[[i]] }\OtherTok{\textless{}{-}} \FunctionTok{local}\NormalTok{(\{}
+\NormalTok{    i }\OtherTok{\textless{}{-}}\NormalTok{ i}
+\NormalTok{    ExpLvl.z }\OtherTok{\textless{}{-}}\NormalTok{ (df.graph[,}\DecValTok{3}\NormalTok{]}\SpecialCharTok{{-}}\FunctionTok{mean}\NormalTok{(df.graph[,}\DecValTok{3}\NormalTok{]))}\SpecialCharTok{/}\FunctionTok{sd}\NormalTok{(df.graph[,}\DecValTok{3}\NormalTok{])}
+
+    \FunctionTok{ggplot}\NormalTok{(df.graph, }\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{UMAP1, }\AttributeTok{y=}\NormalTok{UMAP2, }\AttributeTok{color=}\NormalTok{ExpLvl.z)) }\SpecialCharTok{+}
+    \FunctionTok{theme\_classic}\NormalTok{() }\SpecialCharTok{+}
+    \FunctionTok{ggtitle}\NormalTok{(markers.title[i]) }\SpecialCharTok{+}
+    \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{size=}\FloatTok{0.1}\NormalTok{) }\SpecialCharTok{+}
+    \FunctionTok{theme}\NormalTok{(}\AttributeTok{plot.title =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{10}\NormalTok{, }\AttributeTok{face =} \StringTok{"bold"}\NormalTok{), }\AttributeTok{legend.position =} \StringTok{"bottom"}\NormalTok{) }\SpecialCharTok{+}
+    \FunctionTok{scale\_color\_gradient}\NormalTok{(}\AttributeTok{low =} \StringTok{"gray88"}\NormalTok{, }\AttributeTok{high =} \StringTok{"magenta3"}\NormalTok{)}
+\NormalTok{  \})    }
+\NormalTok{\}}
+
+\FunctionTok{grid.arrange}\NormalTok{(}\AttributeTok{grobs =}\NormalTok{ p.ls, }\AttributeTok{ncol =} \DecValTok{3}\NormalTok{,}
+             \AttributeTok{top =} \StringTok{"The Triana dataset (coloured cells by marker expression)"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{adjustwidth}{\fltoffset}{0mm}
+\includegraphics[width=1\linewidth,]{EXTruvIIInb_vignette_files/figure-latex/umap_marker-1} \end{adjustwidth}
+
+We do see higher expression levels of the mRNA and ADT markers for the \texttt{Mature and memory B cells} cluster in the bottom of each panel. However, the surface protein markers in the bottom panels tend to express in a broader range of cell types beyond just \texttt{Mature and memory B cells}.
+
+\section{Summary}\label{summary}
+
+The Extended RUV-III-NB model has effectively reduced unwanted variation and enhanced biological signals. Additionally, the corrected data allows for feature-level analyses, including differential expression (DE) analysis.
+
+
+\end{document}
