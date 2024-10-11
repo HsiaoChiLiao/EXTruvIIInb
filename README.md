@@ -18,14 +18,15 @@ $$
 \log(\boldsymbol{\mu_f})=\zeta_f\boldsymbol{1}+\boldsymbol{M}\boldsymbol{\beta_f}+\boldsymbol{W}\boldsymbol{\alpha_f},
 $$
 
-The Extended RUV-III-NB has a different design for the unwanted component Wα<sub>f</sub>, where W = [ W₁ | W₂ | W₃ ]<sub>(n × (k₁ + k₂ + k₃))</sub>
+The Extended RUV-III-NB has a different design for the unwanted component Wα<sub>f</sub>, where 
+W = [ W₁ | W₂ | W₃ ]<sub>(n × (k₁ + k₂ + k₃))</sub>,
 α<sub>f</sub> = 
 [ α<sub>1,f</sub> ]
-[     0     ]
+[     0           ]
 [ α<sub>3,f</sub> ]
 ((k₁ + k₃) × 1) for f from the mRNA domain, and
 α<sub>f</sub> =
-[     0     ]
+[     0           ]
 [ α<sub>2,f</sub> ]
 [ α<sub>3,f</sub> ]
 <sub>((k₂ + k₃) × 1)</sub> for f from the protein domain.
