@@ -34,7 +34,6 @@
 #' @import foreach
 #' @import doParallel
 #' @importFrom DelayedArray DelayedArray
-#' @importFrom ruvIIInb estimateDisp.par
 #' @importFrom utils head
 #' @importFrom stats cor dnbinom mad median pnbinom qnbinom quantile uniroot
 #' @importFrom irlba irlba
