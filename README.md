@@ -18,28 +18,17 @@ $$
 \log(\boldsymbol{\mu_f})=\zeta_f\boldsymbol{1}+\boldsymbol{M}\boldsymbol{\beta_f}+\boldsymbol{W}\boldsymbol{\alpha_f},
 $$
 
-The Extended RUV-III-NB has a different design for the unwanted component $\boldsymbol{W\alpha_f}$, where
-$\boldsymbol{W}=
-\begin{bmatrix}
-\boldsymbol{W_1}|&\boldsymbol{W_2}|&\boldsymbol{W_3}
-\end{bmatrix}
-_{n \times (k_1+k_2+k_3)}$
-
-$\boldsymbol{\alpha_f}=
-\begin{bmatrix}
-\boldsymbol{\alpha_{1,f}} \\
-\boldsymbol{0} \\
-\boldsymbol{\alpha_{3,f}}
-\end{bmatrix}
-_{(k_1+k_3) \times 1}$ for $f$ from the mRNA domain, and 
-
-$\boldsymbol{\alpha_f}=
-\begin{bmatrix}
-\boldsymbol{0} \\
-\boldsymbol{\alpha_{2,f}} \\
-\boldsymbol{\alpha_{3,f}}
-\end{bmatrix}
-_{(k_2+k_3) \times 1}$ for $f$ from the protein domain.
+The Extended RUV-III-NB has a different design for the unwanted component Wα<sub>f</sub>, where W = [ W₁ | W₂ | W₃ ]<sub>(n × (k₁ + k₂ + k₃))</sub>
+α<sub>f</sub> = 
+[ α<sub>1,f</sub> ]
+[     0     ]
+[ α<sub>3,f</sub> ]
+((k₁ + k₃) × 1) for f from the mRNA domain, and
+α<sub>f</sub> =
+[     0     ]
+[ α<sub>2,f</sub> ]
+[ α<sub>3,f</sub> ]
+<sub>((k₂ + k₃) × 1)</sub> for f from the protein domain.
 <br>
 
 
