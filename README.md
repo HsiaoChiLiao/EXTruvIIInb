@@ -25,8 +25,7 @@ W = [ W₁ | W₂ | W₃ ]<sub>(n × (k₁ + k₂ + k₃))</sub>,
 <br>
 
 
-# Analysing Data with the EXTruvIIInb Package
-## Installation
+# Installation
 We firstly install the Extended RUV-III-NB package with the following.
 ``` r
 if (!requireNamespace("devtools", quietly = TRUE)){
