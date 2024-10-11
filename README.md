@@ -41,12 +41,6 @@ Below packages are required for the analysis in this Vignette and are loaded bel
 library(ruvIIInb)
 library(DelayedArray)
 library(SingleCellExperiment)
-library(ggplot2)
-library(GGally)
-library(RColorBrewer)
-library(uwot)
-library(lisi)
-library(gridExtra)
 library(parallel)
 library(cowplot)
 library(metapod)
@@ -118,6 +112,31 @@ help(extFastruvIIInb_vanilla, package = "EXTruvIIInb")
 ```
 
 The `extruv3nb_broad` is an R object that contains the corrected data and the parameters estimated by the model.
+
+## The corrected data
+Then, to obtain the corrected data, we run the below.
+
+``` r
+#Creating a SingleCellExperiment object
+sce_extruv3nb_broad <- makeSCE2(extruv3nb_broad, cData=meta)
+print("passed converting to sce")
+
+# Obtaining corrected data
+#the percentile adjusted count on the natural log scale
+rna_logPAC <- as.matrix(assays(sce_extruv3nb_broad[[1]])$logPAC)
+adt_logPAC <- as.matrix(assays(sce_extruv3nb_broad[[2]])$logPAC)
+#the Pearson residuals
+rna_PearsonRes <- as.matrix(assays(sce_extruv3nb_broad[[1]])$pearson) 
+adt_PearsonRes <- as.matrix(assays(sce_extruv3nb_broad[[2]])$pearson)
+```
+
+Although we perform the downstream analysis using the percentile adjusted counts on the natural log scale, the corrected counts can be obtained with the following.
+``` r
+#the corrected count matrix of mRNA features (genes on rows and cells on columns)
+(exp(rna_logPAC)-1)[1:5,1:3]
+#the corrected count matrix of protein features (proteins on rows and cells on columns)
+(exp(adt_logPAC)-1)[1:5,1:3]
+```
 
 # THANK YOU
 
