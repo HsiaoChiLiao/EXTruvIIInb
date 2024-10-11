@@ -42,8 +42,6 @@ library(ruvIIInb)
 library(DelayedArray)
 library(SingleCellExperiment)
 library(parallel)
-library(cowplot)
-library(metapod)
 ```
 
 # Anslysing the Triana dataset with EXTruvIIInb
