@@ -31,7 +31,7 @@ We firstly install the Extended RUV-III-NB package with the following.
 if (!requireNamespace("devtools", quietly = TRUE)){
     install.packages("devtools")
 }
-devtools::install_github(""HsiaoChiLiao/EXTruvIIInb", build_vignettes=FALSE)
+devtools::install_github("HsiaoChiLiao/EXTruvIIInb", build_vignettes=FALSE)
 
 library(EXTruvIIInb)
 ```
