@@ -44,7 +44,7 @@ library(SingleCellExperiment)
 library(parallel)
 ```
 
-# Anslysing the Triana dataset with EXTruvIIInb
+# Anslysing a real dataset with EXTruvIIInb
 ## The Triana dataset
 This human bone marrow dataset was published by Triana et al. (2021, Nature Immunology). After quality control (QC), this dataset contains 422 targeted mRNA features, and 97 proteins measured by oligo-tagged antibodies (Antibody-Derived Tags, ADT). A total of 9,663 cells were randomly selected from 49,057 cells from 3 healthy young adults and 3 healthy aged adults with each sample from a different batch, are used for the below demonstration.
 
@@ -112,7 +112,7 @@ help(extFastruvIIInb_vanilla, package = "EXTruvIIInb")
 The `extruv3nb_broad` is an R object that contains the corrected data and the parameters estimated by the model.
 
 ## The corrected data
-Then, to obtain the corrected data, we run the below.
+Then, to obtain the corrected data (both logPAC and Pearson residuals), we run the below.
 
 ``` r
 #Creating a SingleCellExperiment object
@@ -128,7 +128,7 @@ rna_PearsonRes <- as.matrix(assays(sce_extruv3nb_broad[[1]])$pearson)
 adt_PearsonRes <- as.matrix(assays(sce_extruv3nb_broad[[2]])$pearson)
 ```
 
-Although we perform the downstream analysis using the percentile adjusted counts on the natural log scale, the corrected counts can be obtained with the following.
+Even though we mostly perform downstream analyses using the percentile adjusted counts on the natural log scale, the corrected counts can be obtained with the following.
 ``` r
 #the corrected count matrix of mRNA features (genes on rows and cells on columns)
 (exp(rna_logPAC)-1)[1:5,1:3]
