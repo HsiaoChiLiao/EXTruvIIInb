@@ -318,8 +318,8 @@ Based on our experience, a majority of the library size effect of each modality 
 \NormalTok{extruv3nb\_broad }\OtherTok{\textless{}{-}} \FunctionTok{extFastruvIIInb\_vanilla}\NormalTok{(}\AttributeTok{Y1 =} \FunctionTok{DelayedArray}\NormalTok{(}\FunctionTok{t}\NormalTok{(rna\_raw)),}
     \AttributeTok{Y2 =} \FunctionTok{DelayedArray}\NormalTok{(}\FunctionTok{t}\NormalTok{(adt\_raw)), }\AttributeTok{M =}\NormalTok{ M, }\AttributeTok{ctl1 =}\NormalTok{ nc1, }\AttributeTok{ctl2 =}\NormalTok{ nc2,}
     \AttributeTok{ctl3 =}\NormalTok{ nc3, }\AttributeTok{k1 =} \DecValTok{1}\NormalTok{, }\AttributeTok{k2 =} \DecValTok{1}\NormalTok{, }\AttributeTok{k3 =} \DecValTok{2}\NormalTok{, }\AttributeTok{ncores =} \DecValTok{2}\NormalTok{)}
-\CommentTok{\#\textgreater{} [1] "time to Winsorize RNA count matrix: 0.741657018661499"}
-\CommentTok{\#\textgreater{} [1] "time to Winsorize ADT count matrix: 0.0369200706481934"}
+\CommentTok{\#\textgreater{} [1] "time to Winsorize RNA count matrix: 0.760434865951538"}
+\CommentTok{\#\textgreater{} [1] "time to Winsorize ADT count matrix: 0.039484977722168"}
 \CommentTok{\#\textgreater{} [1] "Batch variable not supplied...assuming cells come from one batch"}
 \CommentTok{\#\textgreater{} Loading required package: limma}
 \CommentTok{\#\textgreater{} }
@@ -394,7 +394,7 @@ Based on our experience, a majority of the library size effect of each modality 
 \FunctionTok{print}\NormalTok{(}\StringTok{"finished!"}\NormalTok{)}
 \CommentTok{\#\textgreater{} [1] "finished!"}
 \FunctionTok{print}\NormalTok{(b }\SpecialCharTok{{-}}\NormalTok{ a)}
-\CommentTok{\#\textgreater{} Time difference of 1.929838 mins}
+\CommentTok{\#\textgreater{} Time difference of 1.845484 mins}
 \end{Highlighting}
 \end{Shaded}
 
@@ -632,7 +632,7 @@ Below are the distributions of the LISI scores for the Extended RUV-III-NB corre
 \NormalTok{bio.lisi}\SpecialCharTok{$}\NormalTok{Data }\OtherTok{\textless{}{-}} \FunctionTok{factor}\NormalTok{(bio.lisi}\SpecialCharTok{$}\NormalTok{Data, }\AttributeTok{levels =} \FunctionTok{c}\NormalTok{(}\StringTok{"Raw"}\NormalTok{, }\StringTok{"logPAC"}\NormalTok{,}
     \StringTok{"Pearson Residual"}\NormalTok{))}
 \NormalTok{p1 }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(bio.lisi, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Data, }\AttributeTok{y =} \FunctionTok{log}\NormalTok{(Bio\_LISI), }\AttributeTok{fill =}\NormalTok{ Data)) }\SpecialCharTok{+}
-    \FunctionTok{ggtitle}\NormalTok{(}\StringTok{"Biological LISI {-} the distributions of cells"}\NormalTok{) }\SpecialCharTok{+}
+    \FunctionTok{ggtitle}\NormalTok{(}\StringTok{"The distribution of biological LISI scores across cells}\SpecialCharTok{\textbackslash{}n}\StringTok{for raw and corrected data"}\NormalTok{) }\SpecialCharTok{+}
     \FunctionTok{geom\_boxplot}\NormalTok{(}\AttributeTok{outlier.shape =} \ConstantTok{NA}\NormalTok{) }\SpecialCharTok{+} \FunctionTok{coord\_cartesian}\NormalTok{(}\AttributeTok{ylim =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}
     \FloatTok{0.3}\NormalTok{)) }\SpecialCharTok{+} \FunctionTok{scale\_fill\_manual}\NormalTok{(}\AttributeTok{values =}\NormalTok{ adjDat\_col) }\SpecialCharTok{+} \FunctionTok{theme\_bw}\NormalTok{()}
 \FunctionTok{print}\NormalTok{(p1)}
@@ -667,7 +667,7 @@ For better comparison, the biological LISI scores are shown on the natural logar
 \NormalTok{bat.lisi}\SpecialCharTok{$}\NormalTok{Cell\_Type }\OtherTok{\textless{}{-}} \FunctionTok{factor}\NormalTok{(bat.lisi}\SpecialCharTok{$}\NormalTok{Cell\_Type, }\AttributeTok{levels =} \FunctionTok{data.frame}\NormalTok{(}\FunctionTok{table}\NormalTok{(meta}\SpecialCharTok{$}\NormalTok{cellType\_broad))[}\FunctionTok{order}\NormalTok{(}\FunctionTok{data.frame}\NormalTok{(}\FunctionTok{table}\NormalTok{(meta}\SpecialCharTok{$}\NormalTok{cellType\_broad))}\SpecialCharTok{$}\NormalTok{Freq,}
     \AttributeTok{decreasing =}\NormalTok{ T), }\StringTok{"Var1"}\NormalTok{])}
 \NormalTok{p2 }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(bat.lisi, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Cell\_Type, }\AttributeTok{y =} \FunctionTok{log}\NormalTok{(Bat\_LISI),}
-    \AttributeTok{fill =}\NormalTok{ Data)) }\SpecialCharTok{+} \FunctionTok{ggtitle}\NormalTok{(}\StringTok{"Batch LISI {-} the distributions of cells"}\NormalTok{) }\SpecialCharTok{+}
+    \AttributeTok{fill =}\NormalTok{ Data)) }\SpecialCharTok{+} \FunctionTok{ggtitle}\NormalTok{(}\StringTok{"The distribution of batch LISI scores across cells for raw and corrected data"}\NormalTok{) }\SpecialCharTok{+}
     \FunctionTok{labs}\NormalTok{(}\AttributeTok{x =} \StringTok{"Cell Type"}\NormalTok{, }\AttributeTok{subtitle =} \StringTok{"ordered from largest (left) to smallest (right)"}\NormalTok{) }\SpecialCharTok{+}
     \FunctionTok{geom\_boxplot}\NormalTok{(}\AttributeTok{outlier.shape =} \ConstantTok{NA}\NormalTok{) }\SpecialCharTok{+} \FunctionTok{coord\_cartesian}\NormalTok{(}\AttributeTok{ylim =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}
     \DecValTok{2}\NormalTok{)) }\SpecialCharTok{+} \FunctionTok{scale\_fill\_manual}\NormalTok{(}\AttributeTok{values =}\NormalTok{ adjDat\_col) }\SpecialCharTok{+} \FunctionTok{theme\_bw}\NormalTok{() }\SpecialCharTok{+}
@@ -968,10 +968,6 @@ The markers for cell-type identification are defined as positive controls becaus
 
 \NormalTok{                pc\_inbat\_ls[[b]] }\OtherTok{\textless{}{-}}\NormalTok{ orig.pval.v}
 \NormalTok{                bat.pval.mt[b, ] }\OtherTok{\textless{}{-}}\NormalTok{ orig.pval.v  }\CommentTok{\#for later combination use}
-
-                \CommentTok{\# https://www.biostars.org/p/338286/}
-                \CommentTok{\# combine (using Fisher\textquotesingle{}s method) then}
-                \CommentTok{\# adjust}
 \NormalTok{            \}}
 \NormalTok{        \}}
         \FunctionTok{names}\NormalTok{(pc\_inbat\_ls) }\OtherTok{\textless{}{-}} \FunctionTok{unique}\NormalTok{(meta}\SpecialCharTok{$}\NormalTok{sample\_batch)}
@@ -1110,6 +1106,121 @@ We do see higher expression levels of the mRNA and ADT markers for the \texttt{M
 \section{Summary}\label{summary}
 
 The Extended RUV-III-NB model has effectively reduced unwanted variation and enhanced biological signals. Additionally, the corrected data allows for feature-level analyses, including differential expression (DE) analysis.
+
+\section{Session Information}\label{session-information}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sessionInfo}\NormalTok{()}
+\CommentTok{\#\textgreater{} R version 4.3.3 (2024{-}02{-}29)}
+\CommentTok{\#\textgreater{} Platform: x86\_64{-}apple{-}darwin20 (64{-}bit)}
+\CommentTok{\#\textgreater{} Running under: macOS Ventura 13.6.3}
+\CommentTok{\#\textgreater{} }
+\CommentTok{\#\textgreater{} Matrix products: default}
+\CommentTok{\#\textgreater{} BLAS:   /Library/Frameworks/R.framework/Versions/4.3{-}x86\_64/Resources/lib/libRblas.0.dylib }
+\CommentTok{\#\textgreater{} LAPACK: /Library/Frameworks/R.framework/Versions/4.3{-}x86\_64/Resources/lib/libRlapack.dylib;  LAPACK version 3.11.0}
+\CommentTok{\#\textgreater{} }
+\CommentTok{\#\textgreater{} locale:}
+\CommentTok{\#\textgreater{} [1] en\_US.UTF{-}8/en\_US.UTF{-}8/en\_US.UTF{-}8/C/en\_US.UTF{-}8/en\_US.UTF{-}8}
+\CommentTok{\#\textgreater{} }
+\CommentTok{\#\textgreater{} time zone: Australia/Melbourne}
+\CommentTok{\#\textgreater{} tzcode source: internal}
+\CommentTok{\#\textgreater{} }
+\CommentTok{\#\textgreater{} attached base packages:}
+\CommentTok{\#\textgreater{} [1] parallel  stats4    stats     graphics  grDevices utils     datasets }
+\CommentTok{\#\textgreater{} [8] methods   base     }
+\CommentTok{\#\textgreater{} }
+\CommentTok{\#\textgreater{} other attached packages:}
+\CommentTok{\#\textgreater{}  [1] HDF5Array\_1.30.1            rhdf5\_2.46.1               }
+\CommentTok{\#\textgreater{}  [3] edgeR\_4.0.16                limma\_3.58.1               }
+\CommentTok{\#\textgreater{}  [5] foreach\_1.5.2               metapod\_1.10.1             }
+\CommentTok{\#\textgreater{}  [7] cowplot\_1.1.3               gridExtra\_2.3              }
+\CommentTok{\#\textgreater{}  [9] lisi\_1.0                    uwot\_0.2.2                 }
+\CommentTok{\#\textgreater{} [11] RColorBrewer\_1.1{-}3          GGally\_2.2.1               }
+\CommentTok{\#\textgreater{} [13] ggplot2\_3.5.1               SingleCellExperiment\_1.24.0}
+\CommentTok{\#\textgreater{} [15] SummarizedExperiment\_1.32.0 Biobase\_2.62.0             }
+\CommentTok{\#\textgreater{} [17] GenomicRanges\_1.54.1        GenomeInfoDb\_1.38.8        }
+\CommentTok{\#\textgreater{} [19] DelayedArray\_0.28.0         SparseArray\_1.2.4          }
+\CommentTok{\#\textgreater{} [21] S4Arrays\_1.2.1              abind\_1.4{-}8                }
+\CommentTok{\#\textgreater{} [23] IRanges\_2.36.0              S4Vectors\_0.40.2           }
+\CommentTok{\#\textgreater{} [25] MatrixGenerics\_1.14.0       matrixStats\_1.4.1          }
+\CommentTok{\#\textgreater{} [27] BiocGenerics\_0.48.1         Matrix\_1.6{-}5               }
+\CommentTok{\#\textgreater{} [29] ruvIIInb\_0.8.2.0            EXTruvIIInb\_0.0.0.9000     }
+\CommentTok{\#\textgreater{} [31] knitr\_1.48                  BiocStyle\_2.30.0           }
+\CommentTok{\#\textgreater{} }
+\CommentTok{\#\textgreater{} loaded via a namespace (and not attached):}
+\CommentTok{\#\textgreater{}   [1] RcppAnnoy\_0.0.22          splines\_4.3.3            }
+\CommentTok{\#\textgreater{}   [3] bitops\_1.0{-}9              tibble\_3.2.1             }
+\CommentTok{\#\textgreater{}   [5] R.oo\_1.26.0               rpart\_4.1.23             }
+\CommentTok{\#\textgreater{}   [7] lifecycle\_1.0.4           rstatix\_0.7.2            }
+\CommentTok{\#\textgreater{}   [9] doParallel\_1.0.17         mirt\_1.42                }
+\CommentTok{\#\textgreater{}  [11] globals\_0.16.3            lattice\_0.22{-}5           }
+\CommentTok{\#\textgreater{}  [13] MASS\_7.3{-}60.0.1           backports\_1.5.0          }
+\CommentTok{\#\textgreater{}  [15] magrittr\_2.0.3            Hmisc\_5.1{-}3              }
+\CommentTok{\#\textgreater{}  [17] rmarkdown\_2.28            yaml\_2.3.10              }
+\CommentTok{\#\textgreater{}  [19] MultBiplotR\_23.11.0       sessioninfo\_1.2.2        }
+\CommentTok{\#\textgreater{}  [21] pbapply\_1.7{-}2             zlibbioc\_1.48.2          }
+\CommentTok{\#\textgreater{}  [23] audio\_0.1{-}11              purrr\_1.0.2              }
+\CommentTok{\#\textgreater{}  [25] R.utils\_2.12.3            RCurl\_1.98{-}1.16          }
+\CommentTok{\#\textgreater{}  [27] rgl\_1.3.1                 nnet\_7.3{-}19              }
+\CommentTok{\#\textgreater{}  [29] GenomeInfoDbData\_1.2.11   irlba\_2.3.5.1            }
+\CommentTok{\#\textgreater{}  [31] listenv\_0.9.1             testthat\_3.2.1.1         }
+\CommentTok{\#\textgreater{}  [33] RPushbullet\_0.3.4         vegan\_2.6{-}8              }
+\CommentTok{\#\textgreater{}  [35] parallelly\_1.38.0         DelayedMatrixStats\_1.24.0}
+\CommentTok{\#\textgreater{}  [37] permute\_0.9{-}7             codetools\_0.2{-}19         }
+\CommentTok{\#\textgreater{}  [39] dae\_3.2.28                tidyselect\_1.2.1         }
+\CommentTok{\#\textgreater{}  [41] futile.logger\_1.4.3       farver\_2.1.2             }
+\CommentTok{\#\textgreater{}  [43] base64enc\_0.1{-}3           jsonlite\_1.8.9           }
+\CommentTok{\#\textgreater{}  [45] polycor\_0.8{-}1             progressr\_0.14.0         }
+\CommentTok{\#\textgreater{}  [47] Formula\_1.2{-}5             iterators\_1.0.14         }
+\CommentTok{\#\textgreater{}  [49] tools\_4.3.3               snow\_0.4{-}4               }
+\CommentTok{\#\textgreater{}  [51] Rcpp\_1.0.13               glue\_1.8.0               }
+\CommentTok{\#\textgreater{}  [53] mnormt\_2.1.1              Rttf2pt1\_1.3.12          }
+\CommentTok{\#\textgreater{}  [55] xfun\_0.48                 mgcv\_1.9{-}1               }
+\CommentTok{\#\textgreater{}  [57] admisc\_0.36               dplyr\_1.1.4              }
+\CommentTok{\#\textgreater{}  [59] withr\_3.0.1               formatR\_1.14             }
+\CommentTok{\#\textgreater{}  [61] BiocManager\_1.30.25       beepr\_2.0                }
+\CommentTok{\#\textgreater{}  [63] fastmap\_1.2.0             rhdf5filters\_1.14.1      }
+\CommentTok{\#\textgreater{}  [65] fansi\_1.0.6               caTools\_1.18.3           }
+\CommentTok{\#\textgreater{}  [67] digest\_0.6.37             R6\_2.5.1                 }
+\CommentTok{\#\textgreater{}  [69] colorspace\_2.1{-}1          gtools\_3.9.5             }
+\CommentTok{\#\textgreater{}  [71] R.methodsS3\_1.8.2         utf8\_1.2.4               }
+\CommentTok{\#\textgreater{}  [73] tidyr\_1.3.1               generics\_0.1.3           }
+\CommentTok{\#\textgreater{}  [75] data.table\_1.16.0         tryCatchLog\_1.3.1        }
+\CommentTok{\#\textgreater{}  [77] SimDesign\_2.17.1          htmlwidgets\_1.6.4        }
+\CommentTok{\#\textgreater{}  [79] ggstats\_0.7.0             pkgconfig\_2.0.3          }
+\CommentTok{\#\textgreater{}  [81] gtable\_0.3.5              XVector\_0.42.0           }
+\CommentTok{\#\textgreater{}  [83] brio\_1.1.5                htmltools\_0.5.8.1        }
+\CommentTok{\#\textgreater{}  [85] carData\_3.0{-}5             bookdown\_0.40            }
+\CommentTok{\#\textgreater{}  [87] scales\_1.3.0              geometry\_0.5.0           }
+\CommentTok{\#\textgreater{}  [89] lambda.r\_1.2.4            rstudioapi\_0.16.0        }
+\CommentTok{\#\textgreater{}  [91] checkmate\_2.3.2           nlme\_3.1{-}164             }
+\CommentTok{\#\textgreater{}  [93] magic\_1.6{-}1               curl\_5.2.3               }
+\CommentTok{\#\textgreater{}  [95] stringr\_1.5.1             KernSmooth\_2.23{-}22       }
+\CommentTok{\#\textgreater{}  [97] extrafont\_0.19            foreign\_0.8{-}86           }
+\CommentTok{\#\textgreater{}  [99] pillar\_1.9.0              grid\_4.3.3               }
+\CommentTok{\#\textgreater{} [101] vctrs\_0.6.5               RANN\_2.6.2               }
+\CommentTok{\#\textgreater{} [103] gplots\_3.2.0              ggpubr\_0.6.0             }
+\CommentTok{\#\textgreater{} [105] car\_3.1{-}3                 dunn.test\_1.3.6          }
+\CommentTok{\#\textgreater{} [107] xtable\_1.8{-}4              Deriv\_4.1.6              }
+\CommentTok{\#\textgreater{} [109] cluster\_2.1.6             dcurver\_0.9.2            }
+\CommentTok{\#\textgreater{} [111] extrafontdb\_1.0           GPArotation\_2024.3{-}1     }
+\CommentTok{\#\textgreater{} [113] htmlTable\_2.4.3           evaluate\_1.0.0           }
+\CommentTok{\#\textgreater{} [115] tinytex\_0.53              locfit\_1.5{-}9.10          }
+\CommentTok{\#\textgreater{} [117] mvtnorm\_1.3{-}1             cli\_3.6.3                }
+\CommentTok{\#\textgreater{} [119] compiler\_4.3.3            futile.options\_1.0.1     }
+\CommentTok{\#\textgreater{} [121] rlang\_1.1.4               crayon\_1.5.3             }
+\CommentTok{\#\textgreater{} [123] ThreeWay\_1.1.3            future.apply\_1.11.2      }
+\CommentTok{\#\textgreater{} [125] ggsignif\_0.6.4            labeling\_0.4.3           }
+\CommentTok{\#\textgreater{} [127] matlib\_1.0.0              plyr\_1.8.9               }
+\CommentTok{\#\textgreater{} [129] stringi\_1.8.4             psych\_2.4.6.26           }
+\CommentTok{\#\textgreater{} [131] BiocParallel\_1.36.0       deldir\_2.0{-}4             }
+\CommentTok{\#\textgreater{} [133] munsell\_0.5.1             sparseMatrixStats\_1.14.0 }
+\CommentTok{\#\textgreater{} [135] future\_1.34.0             Rhdf5lib\_1.24.2          }
+\CommentTok{\#\textgreater{} [137] statmod\_1.5.0             broom\_1.0.7}
+\end{Highlighting}
+\end{Shaded}
+
 
 
 \end{document}

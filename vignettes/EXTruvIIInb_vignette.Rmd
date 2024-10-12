@@ -354,7 +354,7 @@ bio.lisi <- data.frame(Bio_LISI = c(lisi.bio.ls[[1]]$cellType_broad,
                                 rep("Pearson Residual", length(lisi.bio.ls[[3]]$cellType_broad))))
 bio.lisi$Data <- factor(bio.lisi$Data, levels = c("Raw", "logPAC", "Pearson Residual"))
 p1 <- ggplot(bio.lisi, aes(x=Data, y=log(Bio_LISI), fill=Data)) + 
-  ggtitle("Biological LISI - the distributions of cells") +
+  ggtitle("The distribution of biological LISI scores across cells\nfor raw and corrected data") +
   geom_boxplot(outlier.shape = NA) +
   coord_cartesian(ylim = c(0, 0.3)) +
   scale_fill_manual(values = adjDat_col) +
@@ -389,7 +389,7 @@ bat.lisi$Data <- factor(bat.lisi$Data, levels = c("Raw", "logPAC", "Pearson Resi
 bat.lisi$Cell_Type <- factor(bat.lisi$Cell_Type, 
                              levels = data.frame(table(meta$cellType_broad))[order(data.frame(table(meta$cellType_broad))$Freq, decreasing = T), "Var1"])
 p2 <- ggplot(bat.lisi, aes(x=Cell_Type, y=log(Bat_LISI), fill=Data)) + 
-  ggtitle("Batch LISI - the distributions of cells") +
+  ggtitle("The distribution of batch LISI scores across cells for raw and corrected data") +
   labs(x = "Cell Type",
        subtitle = "ordered from largest (left) to smallest (right)") +
   geom_boxplot(outlier.shape = NA) +
@@ -655,9 +655,6 @@ for(i in 1:3){
 
        pc_inbat_ls[[b]] <- orig.pval.v
        bat.pval.mt[b,] <- orig.pval.v #for later combination use
-          
-       # https://www.biostars.org/p/338286/
-       # combine (using Fisher's method) then adjust
       }
       }
   names(pc_inbat_ls) <- unique(meta$sample_batch)
@@ -783,3 +780,9 @@ We do see higher expression levels of the mRNA and ADT markers for the `Mature a
 
 # Summary
 The Extended RUV-III-NB model has effectively reduced unwanted variation and enhanced biological signals. Additionally, the corrected data allows for feature-level analyses, including differential expression (DE) analysis.
+
+# Session Information
+```{r, sessinfo}
+sessionInfo()
+```
+
