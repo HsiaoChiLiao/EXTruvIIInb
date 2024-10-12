@@ -137,7 +137,7 @@ Even though we mostly perform downstream analyses using the percentile adjusted 
 ```
 
 # Vignette
-[The Extended RUV-III-NB vignette for analysing matched single-cell transcriptomics and proteomics data](https://HsiaoChiLiao.github.io/EXTruvIIInb/vignettes/EXTruvIIInb_vignette.pdf)
+[The Extended RUV-III-NB vignette for analysing matched single-cell transcriptomics and proteomics data](https://github.com/HsiaoChiLiao/EXTruvIIInb/blob/main/vignettes/EXTruvIIInb_vignette.pdf)
 
 # THANK YOU
 
