@@ -136,6 +136,9 @@ Even though we mostly perform downstream analyses using the percentile adjusted 
 (exp(adt_logPAC)-1)[1:5,1:3]
 ```
 
+# Vignette
+[The Extended RUV-III-NB vignette for analysing matched single-cell transcriptomics and proteomics data](https://HsiaoChiLiao.github.io/EXTruvIIInb/vignettes/EXTruvIIInb_vignette.pdf)
+
 # THANK YOU
 
 Thanks for carrying out analyses with our `EXTruvIIInb` package. Please feel free to raise any issues and/or questions on our GitHub page and/or send them to Hsiao-Chi [hsiaochi.liao@student.unimelb.edu.au](mailto:hsiaochi.liao@student.unimelb.edu.au).

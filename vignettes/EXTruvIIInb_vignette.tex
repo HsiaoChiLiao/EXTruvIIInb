@@ -74,7 +74,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2024-10-09}
+    \date{2024-10-12}
 
 
 % code highlighting
@@ -318,8 +318,8 @@ Based on our experience, a majority of the library size effect of each modality 
 \NormalTok{extruv3nb\_broad }\OtherTok{\textless{}{-}} \FunctionTok{extFastruvIIInb\_vanilla}\NormalTok{(}\AttributeTok{Y1 =} \FunctionTok{DelayedArray}\NormalTok{(}\FunctionTok{t}\NormalTok{(rna\_raw)),}
     \AttributeTok{Y2 =} \FunctionTok{DelayedArray}\NormalTok{(}\FunctionTok{t}\NormalTok{(adt\_raw)), }\AttributeTok{M =}\NormalTok{ M, }\AttributeTok{ctl1 =}\NormalTok{ nc1, }\AttributeTok{ctl2 =}\NormalTok{ nc2,}
     \AttributeTok{ctl3 =}\NormalTok{ nc3, }\AttributeTok{k1 =} \DecValTok{1}\NormalTok{, }\AttributeTok{k2 =} \DecValTok{1}\NormalTok{, }\AttributeTok{k3 =} \DecValTok{2}\NormalTok{, }\AttributeTok{ncores =} \DecValTok{2}\NormalTok{)}
-\CommentTok{\#\textgreater{} [1] "time to Winsorize RNA count matrix: 0.428452968597412"}
-\CommentTok{\#\textgreater{} [1] "time to Winsorize ADT count matrix: 0.0354330539703369"}
+\CommentTok{\#\textgreater{} [1] "time to Winsorize RNA count matrix: 0.741657018661499"}
+\CommentTok{\#\textgreater{} [1] "time to Winsorize ADT count matrix: 0.0369200706481934"}
 \CommentTok{\#\textgreater{} [1] "Batch variable not supplied...assuming cells come from one batch"}
 \CommentTok{\#\textgreater{} Loading required package: limma}
 \CommentTok{\#\textgreater{} }
@@ -394,7 +394,7 @@ Based on our experience, a majority of the library size effect of each modality 
 \FunctionTok{print}\NormalTok{(}\StringTok{"finished!"}\NormalTok{)}
 \CommentTok{\#\textgreater{} [1] "finished!"}
 \FunctionTok{print}\NormalTok{(b }\SpecialCharTok{{-}}\NormalTok{ a)}
-\CommentTok{\#\textgreater{} Time difference of 2.066338 mins}
+\CommentTok{\#\textgreater{} Time difference of 1.929838 mins}
 \end{Highlighting}
 \end{Shaded}
 
@@ -474,7 +474,7 @@ Then, to obtain the corrected data, we run the below.
 \end{Highlighting}
 \end{Shaded}
 
-Even though we mostly perform downstream analyses using the percentile adjusted counts on the natural log scale, the corrected counts can be obtained with the following, 
+Even though we mostly perform downstream analyses using the percentile adjusted counts on the natural log scale, the corrected counts can be obtained with the following.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1040,7 +1040,7 @@ Effectively normalised data is expected to return smaller mean of the marker ran
 \begin{adjustwidth}{\fltoffset}{0mm}
 \includegraphics[width=1\linewidth,]{EXTruvIIInb_vignette_files/figure-latex/de_bio_fig-1} \end{adjustwidth}
 
-The barplot shows lower means of the ranks for positive controls of \texttt{Mature and memory B cells} and \texttt{CD8+ T cells} from the corrected data, suggesting that they return smaller adjusted p-values compared to the raw data. This indicates that biological signals can be better revealed after data normalisation. While the signal in the markers for identifying \texttt{NK cells} do not get improved after normalisation, the difference in \texttt{MeanMarkerRank} value between \texttt{Data} is less pronounced.
+The barplot shows lower means of the ranks for positive controls of \texttt{Mature and memory B cells} and \texttt{CD8+ T cells} from the corrected data, suggesting that they return smaller adjusted p-values compared to the raw data. This indicates that biological signals can be better revealed after data normalisation. While the signal in the markers for identifying \texttt{NK cells} was not improved after normalisation, the difference in \texttt{MeanMarkerRank} value between \texttt{Data} is less pronounced.
 
 \paragraph{Marker expressions on UMAP representations}\label{marker-expressions-on-umap-representations}
 

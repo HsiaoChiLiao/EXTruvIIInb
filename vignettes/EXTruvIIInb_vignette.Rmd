@@ -216,7 +216,7 @@ rna_PearsonRes <- as.matrix(assays(sce_extruv3nb_broad[[1]])$pearson)
 adt_PearsonRes <- as.matrix(assays(sce_extruv3nb_broad[[2]])$pearson)
 ```
 
-Although we perform the downstream analysis using the percentile adjusted counts on the natural log scale, the corrected counts can be obtained with the following.
+Even though we mostly perform downstream analyses using the percentile adjusted counts on the natural log scale, the corrected counts can be obtained with the following.
 ```{r, corrected count}
 #the corrected count matrix of mRNA features (genes on rows and cells on columns)
 (exp(rna_logPAC)-1)[1:5,1:3]
@@ -720,7 +720,7 @@ p <- ggplot(df.graph, aes(x = Cell_Type, y = MeanMarkerRank, fill=Data)) +
   theme(axis.text.x = element_text(angle = 60, vjust = 1, hjust=1))
 print(p)
 ```
-The barplot shows lower means of the ranks for positive controls of `Mature and memory B cells` and `CD8+ T cells` from the corrected data, suggesting that they return smaller adjusted p-values compared to the raw data. This indicates that biological signals can be better revealed after data normalisation. While the signal in the markers for identifying `NK cells` do not get improved after normalisation, the difference in `MeanMarkerRank` value between `Data` is less pronounced.
+The barplot shows lower means of the ranks for positive controls of `Mature and memory B cells` and `CD8+ T cells` from the corrected data, suggesting that they return smaller adjusted p-values compared to the raw data. This indicates that biological signals can be better revealed after data normalisation. While the signal in the markers for identifying `NK cells` was not improved after normalisation, the difference in `MeanMarkerRank` value between `Data` is less pronounced.
 
 #### Marker expressions on UMAP representations
 Based on the UMAP representation derived from logPAC data, we observe that the cell types are distinctly clustered. 
