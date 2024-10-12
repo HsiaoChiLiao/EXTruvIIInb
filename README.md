@@ -1,6 +1,6 @@
 # EXTruvIIInb
 ### Author: Hsiao-Chi Liao
-### Date: 11 October 2024
+### Date: 12 October 2024
 <br>
 
 # Introduction
@@ -36,7 +36,7 @@ devtools::install_github("HsiaoChiLiao/EXTruvIIInb", build_vignettes=FALSE)
 library(EXTruvIIInb)
 ```
 
-Below packages are required for the analysis in this Vignette and are loaded below.
+We load the below packages as they are required for the following analyses.
 ``` r
 library(ruvIIInb)
 library(DelayedArray)
@@ -136,8 +136,8 @@ Even though we mostly perform downstream analyses using the percentile adjusted 
 (exp(adt_logPAC)-1)[1:5,1:3]
 ```
 
-# Vignette
-[The Extended RUV-III-NB vignette for analysing matched single-cell transcriptomics and proteomics data](https://github.com/HsiaoChiLiao/EXTruvIIInb/blob/main/vignettes/EXTruvIIInb_vignette.pdf)
+# Vignette for a more comprehensive analysis
+[The Extended RUV-III-NB for normalising matched single-cell transcriptomics and proteomics data](https://github.com/HsiaoChiLiao/EXTruvIIInb/blob/main/vignettes/EXTruvIIInb_vignette.pdf)
 
 # THANK YOU
 
